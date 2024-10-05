@@ -1,0 +1,374 @@
+Operators:
+
+  Operators are symbols (sometimes keywords) that are predefined to perform a certain most commonly required operations on one or more operands.
+
+Types of Operators:
+
+Arithmetic Operators
+
+Comparison (Relational) Operators
+
+Assignment Operators
+
+Logical Operators
+
+Bitwise Operators
+
+Membership Operators
+
+Identity Operators
+
+Operator	Name	      Example
++	    Addition	       a + b = 30
+-	   Subtraction	       a – b = -10
+*	   Multiplication      a * b = 200
+/	   Division	       b / a = 2
+%	   Modulus	       b % a = 0
+**	   Exponent	       a**b =10**20
+//	   Floor Division       9//2 = 4
+
+
+a=10
+b=20
+print ("Addition of two integers")
+print ("addition =",a+b)
+
+output :
+
+Addition of two integers
+ addition = 30
+
+Addition of integer and float results in a float.
+
+a=10
+b=20.5
+print ("Addition of integer and float")
+print ("addition =",a+b)
+
+output :
+
+Addition of integer and float
+ addition = 30.5
+
+The result of adding float to complex is a complex number:
+
+a=10+5j
+b=20.5
+print ("Addition of complex and float")
+print ("addition=",a+b)
+
+output :
+
+Addition of complex and float
+ addition= (30.5+5j)
+
+_____________________________________________________________________________________________________________
+Subtraction Operator (-):
+This operator, known as minus, subtracts the second operand from the first. The resultant number is negative if the second operand is larger.
+
+a=10
+b=20
+print ("Subtraction of two integers:")
+print ("a-b =",a-b)
+print ("b-a =",b-a)
+
+output:
+
+Subtraction of two integers
+ a-b = -10
+ b-a = 10
+
+Subtraction of an integer and a float follows the same principle.
+
+a=10
+b=20.5
+print ("subtraction of integer and float")
+print ("a-b=",a-b)
+print ("b-a=",b-a)
+
+output :
+
+subtraction of integer and float
+a-b= -10.5
+b-a= 10.5
+
+In the subtraction involving a complex and a float, real component is involved in the operation.
+
+a=10+5j
+b=20.5
+print ("subtraction of complex and float")
+print ("a-b=",a-b)
+print ("b-a=",b-a)
+
+ output :
+
+subtraction of complex and float
+a-b= (-10.5+5j)
+b-a= (10.5-5j)
+_______________________________________________________________________________________________________________
+ Multiplication Operator (*):
+
+   The * (asterisk) symbol is defined as a multiplication operator in Python (as in many languages). It returns the product of the two operands on its either side.
+       If any of the operands negative, the result is also negative. If both are negative, the result is positive. Changing the order of operands doesn't change the result
+
+a=10
+b=20
+print ("Multiplication of two integers")
+print ("a*b =",a*b)
+
+output :
+
+Multiplication of two integers
+a*b = 200
+
+a=10
+b=20.5
+print ("Multiplication of integer and float")
+print ("a*b=",a*b)
+
+a=10+5j
+b=20.5
+print ("Multiplication of complex and float")
+print ("a*b =",a*b)
+
+ output :
+
+Multiplication of complex and float
+a*b = (205+102.5j)
+______________________________________________________________________________________________________________
+ Division Operator (/):
+
+The "/" symbol is usually called as forward slash. The result of division operator is numerator (left operand) divided by denominator (right operand). The resultant number is negative if any of the operands is negative. Since infinity cannot be stored in the memory, Python raises ZeroDivisionError if the denominator is 0.
+
+The result of division operator in Python is always a float, even if both operands are integers.
+
+a=10
+b=20
+print ("Division of two integers")
+print ("a/b=",a/b)
+print ("b/a=",b/a)
+ 
+output :
+
+Division of two integers
+ a/b= 0.5
+ b/a= 2.0
+_______________________________________________________________________________________________________________
+Modulus Operator (%)
+
+Python defines the "%" symbol, which is known aa Percent symbol, as Modulus (or modulo) operator. It returns the remainder after the denominator divides the numerator. 
+
+a=10
+b=2
+print ("a%b=", a%b)
+
+a=10
+b=4
+print ("a%b=", a%b)
+
+_______________________________________________________________________________________________________________                           
+ Exponent Operator (**)
+    Python uses ** (double asterisk) as the exponent operator (sometimes called raised to operator). So, for a**b, you say a raised to b, or even bth power of a.
+
+If in the exponentiation expression, both operands are integer, result is also an integer. In case either one is a float, the result is float. Similarly, if either one operand is complex number, exponent operator returns a complex number.
+
+If the base is 0, the result is 0, and if the index is 0 then the result is always 1.
+
+a=10
+b=2
+print ("a**b=", a**b)
+
+output:
+ a**b= 100
+
+a=10
+b=1.5
+print ("a**b=", a**b)
+
+output:
+ a**b= 31.622776601683793
+
+a=7.7
+b=2
+print ( "a**b=", a**b)
+
+output:
+ a**b= 59.290000000000006
+
+_______________________________________________________________________________________________________________
+Floor Division Operator (//)
+
+ Floor division is also called as integer division. Python uses // (double forward slash) symbol for the purpose. 
+  Unlike the modulus or modulo which returns the remainder, the floor division gives the quotient of the division of operands involved.
+
+
+a=9
+b=2
+print ("a//b=", a//b)
+
+output:
+ a//b= 4
+
+a=10
+b=4
+print ("a//b=", a//b)
+
+output:
+ a//b= 2
+
+a=15
+b=3
+print ("a//b=", a//b)
+
+output:
+ a//b= 5
+
+_______________________________________________________________________________________________________________
+ASSIGNMENT OPERATORS:
+              These operators are used to assign value to a variable.
+                           =, +=, -=, *=, /=,%=
+a=10
+b=53
+a=a+b
+print (a)
+
+a=10
+b=7
+a+=b               # equivalent to a=a+b
+print (a)
+
+a=12
+b=5.4
+a+=b           # equivalent to a=a+b
+print (a)
+_______________________________________________________________________________________________________________
+a=10
+b=2
+a-=b  #equivalent to a=a-b
+print (a)
+
+
+a=15
+b=5.6
+a-=b        #equivalent to a=a-b
+print (a)
+
+a=10
+b=7
+a*=b       #equivalent to a=a*b
+print (a)
+
+a=12
+b=5.2
+a*=b    #equivalent to a=a*b
+print (a)
+
+a=10
+b=5
+a/=b     #equivalent to a=a/b
+print (a)
+
+a=10
+b=2
+a%=b     #equivalent to a=a%b
+print (a)
+_______________________________________________________________________________________________________________
+COMPARISON  OPERATORS:
+      These operators are used for the comparison of the values of two operands.
+            Is Equal To	                        ==
+            Greater Than   	                 >
+            Greater Than or Equal To             >=	
+            Less Than                            <
+            Less Than or Equal To                <=
+            Not Equal To  	                 !=
+
+a=5
+b=7
+print (a>b)
+print (a<b)	
+
+
+a=5
+b=7
+print ( "a>b is", a>b)
+print ("a<b is",a<b)
+print ("a==b is",a==b)
+print ("a!=b is",a!=b)
+print ("a!=b is",a>=b)
+print ("a!=b is",a<=b)
+_______________________________________________________________________________________________________________
+LOGICAL OPERATORS:
+    These operators are used to combine two or more conditions.The result returns a Boolean value, i.e., true or false.
+              logical AND 
+             Logical OR
+             Logical not
+
+x = 10
+y = 20
+print("x > 0 and x < 10:",x > 0 and x < 10)
+print("x > 0 and y > 10:",x > 0 and y > 10)
+print("x > 10 or y > 10:",x > 10 or y > 10)
+print("x%2 == 0 and y%2 == 0:",x%2 == 0 and y%2 == 0)
+print ("not (x+y>15):", not (x+y)>15)
+
+_______________________________________________________________________________________________________________
+
+BITWISE OPERATORS:
+           These operators are used to perform bit-level operations on the operands. 
+           The operators are first converted to bit-level and then the calculation is performed on the operands.
+               AND                                  &
+                OR                                     |
+     ONE'S COMPLEMENT             ~
+               XOR                                     ^
+           LEFT SHIFT                      <<
+           RIGHT SHIFT                     >>
+
+
+a=60
+b=13
+print("a&b:",a&b)
+
+a=6
+b=3
+print ("a|b:",a|b)
+print("a^b:",a^b)
+
+a=3
+print(~a)
+print(a<<2)
+print(a>>1)
+_______________________________________________________________________________________________________________
+MEMBERSHIP OPERATORS:
+
+The membership operators in Python help us determine whether an item is present in a given container type object, or in other words, whether an item is a member of the given container type object.
+
+  two membership operators: 
+     in 
+     not in.
+   You can use in operator to check whether a substring is present in a bigger string, any item is present in a list
+
+var = [10,20,30,40]
+a = 30
+b = 10
+c = a-b
+d = a/2
+print (a in var)
+print ( b not in var)
+print ( c in var)
+print (d not in var)
+_______________________________________________________________________________________________________________
+IDENTITY OPERATORS:
+
+ Two identity operators 
+        is  
+       is not
+
+    The "in" operator evaluates to True if both the operand objects share the same memory location. 
+  The memory location of the object can be obtained by the "id()" function. 
+      If the id() of both variables is same, the "in" operator returns True (as a consequence, is not returns False).
+
+a=[1,2,3]
+b=[1,2,3]
+print (id(a), id(b))
+print ( a is b)
+print (b is not a)

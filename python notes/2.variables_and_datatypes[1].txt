@@ -1,0 +1,112 @@
+variables :
+
+   Variables are containers for storing data values.
+    Python has no command for declaring a variable.
+    Variables do not need to be declared with any particular type, and can even change type after they have been set.
+
+
+Rules for creating variables:
+
+    1.Variables start with a letter or underscore
+         Ex:_abc,abc....
+     2.do not start with a digits
+     3.Variables are case sensitive for example age,Age can be considered as a different names.
+
+Example:
+x = 5
+y = "John"
+print(x)
+print(y)
+
+Example
+x = 4         # x is of type int
+x = "Sowmiya" # x is now of type str
+print(x)
+
+Datatypes:
+
+  Data Types are used to define the type of a variable.
+  It defines what type of data we are going to store in a variable. 
+  The data stored in memory can be of many types.
+
+ built-in data types
+
+Numeric - int, float, complex
+String - str
+Sequence - list, tuple, range
+Mapping - dict
+Boolean - bool
+Set - set
+
+Numeric Data Type
+Python numeric data types store numeric values. Number objects are created when you assign a value to them.
+
+var1 = 1       # int data type
+var2 = True    # bool data type
+var3 = 10.023  # float data type
+var4 = 10+3j   # complex data type
+
+type(123)
+
+output:
+<class 'int'>
+
+type(9.99)
+
+output:
+<class 'float'>
+
+type(5+6j)
+
+output:
+<class 'complex'>
+
+type (True)
+
+output:
+<class 'bool'>
+
+type(False)
+
+output:
+<class 'bool'>
+
+
+# integer variable.
+a=100
+print("The type of variable having value", a, " is ", type(a))
+
+b=True
+print("The type of variable having value", b, " is ", type(b))
+
+c=20.345
+print("The type of variable having value", c, " is ", type(c))
+
+
+d=10+3j
+print("The type of variable having value", d, " is ", type(d))
+
+
+Casting:
+If you want to specify the data type of a variable, this can be done with casting.
+
+Example
+x = str(3)    
+y = int(3)   
+z = float(3) 
+
+Get the Type
+You can get the data type of a variable with the type() function.
+
+Example
+x = 5
+y = "John"
+print(type(x))
+print(type(y))
+
+a = 4
+A = "Sally"
+print(a)
+print(A)
+
+

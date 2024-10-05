@@ -1,0 +1,436 @@
+Dictionaries:
+    Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.
+    Keys are unique within a dictionary while values may not be. 
+    The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+
+Dictionary methods:
+Method	                   Description
+get()	          It is useful to get the value of the specified key.
+items()    	          It will return a list with key-value pairs.
+keys()	          It will return the list of all the keys in the dictionary.
+pop()	          It is useful to remove the element at the specified key.
+popitem()	          It will remove the last inserted element.
+clear()	          It is useful to remove all the elements of a dictionary.
+update()	          It will update the dictionary with the specified key-value pairs.
+copy()	          It is useful to return a copy of the dictionary.
+
+Accessing Values in Dictionary:
+   To access dictionary elements, you can use the familiar square brackets along with the key to obtain its value. 
+
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+print ("dict['Name']: ", dict['Name'])
+print ("dict['Age']: ", dict['Age'])
+
+output:
+dict['Name']:  Zara
+dict['Age']:  7
+
+Using the "[ ]" Operator:
+     A dictionary in Python is not a sequence, as the elements in dictionary are not indexed. Still, you can use the square brackets "[ ]" operator to fetch the value associated with a certain key in the dictionary object.
+
+Example :
+capitals = {"Maharashtra":"Mumbai", "Gujarat":"Gandhinagar", "Telangana":"Hyderabad", "Karnataka":"Bengaluru"}
+print ("Capital of Gujarat is : ", capitals['Gujarat'])
+print ("Capital of Karnataka is : ", capitals['Karnataka'])
+
+ output :
+Capital of Gujarat is: Gandhinagar
+Capital of Karnataka is: Bengaluru
+z
+Using the get() Method:
+   The get() method in Python's dict class returns the value mapped to the given key.
+
+Syntax
+Val = dict.get("key")
+key − An immutable object used as key in the dictionary object
+
+Example:
+
+capitals = {"Maharashtra":"Mumbai", "Gujarat":"Gandhinagar", "Telangana":"Hyderabad", "Karnataka":"Bengaluru"}
+print ("Capital of Gujarat is: ", capitals.get('Gujarat'))
+print ("Capital of Karnataka is: ", capitals.get('Karnataka'))
+
+output:
+Capital of Gujarat is: Gandhinagar
+Capital of Karnataka is: Bengaluru
+
+Example :
+   Unlike the "[]" operator, the get() method doesn't raise error if the key is not found; it return None.
+
+capitals = {"Maharashtra":"Mumbai", "Gujarat":"Gandhinagar", "Telangana":"Hyderabad", "Karnataka":"Bengaluru"}
+print ("Capital of Haryana is : ", capitals.get('Haryana'))
+
+ output:
+Capital of Haryana is : None
+____________________________________________________________________________________________________________________________________
+Updating Dictionary:
+    
+     You can update a dictionary by adding a new entry or a key-value pair, modifying an existing entry, or deleting an existing entry.
+
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+dict['Age'] = 8;                 # update existing entry
+dict['School'] = "DPS School";   # Add new entry
+
+print( "dict['Age']: ", dict['Age'])
+print ("dict['School']: ", dict['School'])
+
+output:
+dict['Age']:  8
+dict['School']:  DPS School
+
+Python - Add Dictionary Items
+
+Using the Operator
+    The "[]" operator (used to access value mapped to a dictionary key) is used to update an existing key-value pair as well as add a new pair.
+
+Syntax:
+dict["key"] = val
+    If the key is already present in the dictionary object, its value will be updated to val. If the key is not present in the dictionary, a new key-value pair will be added.
+
+Example:
+marks = {"Savita":67, "swetha":88, "arun":91, "chikku":49}
+print ("marks dictionary before update: ", marks)
+marks['arun'] = 95
+print ("marks dictionary after update: ", marks)
+
+output:
+marks dictionary before update: {'Savita': 67, 'swetha': 88, 'arun': 91, 'chikku': 49}
+marks dictionary after update: {'Savita': 67, 'swetha': 88, 'arun': 95, 'chikku': 49}
+
+Example:
+   However, an item with 'Krishnan' as its key is not available in the dictionary, hence a new key-value pair is added.
+
+marks = {"Savita":67, "swetha":88, "arun":91, "chikku":49}
+print ("marks dictionary before update: ", marks)
+marks['Krishan'] = 74
+print ("marks dictionary after update: ", marks)
+ 
+output:
+marks dictionary before update: {'Savita': 67, 'swetha': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update: {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49, 'Krishan': 74}
+
+Using the update() Method
+You can use the update() method in dict class in three different ways:
+
+Update with Another Dictionary:
+In this case, the update() method's argument is another dictionary. Value of keys common in both dictionaries is updated. For new keys, key-value pair is added in the existing dictionary
+
+Syntax:
+d1.update(d2)
+Return value
+The existing dictionary is updated with new key-value pairs added to it.
+
+Example:
+marks = {"Savita":67, "Imtiaz":88, "Laxman":91, "David":49}
+print ("marks dictionary before update: \n", marks)
+marks1 = {"Sharad": 51, "Mushtaq": 61, "Laxman": 89}
+marks.update(marks1)
+print ("marks dictionary after update: \n", marks)
+It will produce the following output −
+
+marks dictionary before update:
+{'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+{'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+
+Update with Iterable:
+If the argument to update() method is a list or tuple of two item tuples, an item each for it is added in the existing dictionary, or updated if the key is existing.
+
+Syntax:
+d1.update([(k1, v1), (k2, v2)])
+Return value
+Existing dictionary is updated with new keys added.
+
+Example:
+marks = {"Savita":67, "Imtiaz":88, "Laxman":91, "David":49}
+print ("marks dictionary before update: \n", marks)
+marks1 = [("Sharad", 51), ("Mushtaq", 61), ("Laxman", 89)]
+marks.update(marks1)
+print ("marks dictionary after update: \n", marks)
+
+output:
+marks dictionary before update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+
+Update with Keyword Arguments:
+     Third version of update() method accepts list of keyword arguments in name=value format. New k-v pairs are added, or value of existing key is updated.
+
+Syntax
+d1.update(k1=v1, k2=v2)
+Return value
+Existing dictionary is updated with new key-value pairs added.
+
+Example
+marks = {"Savita":67, "Imtiaz":88, "Laxman":91, "David":49}
+print ("marks dictionary before update: \n", marks)
+marks.update(Sharad = 51, Mushtaq = 61, Laxman = 89)
+print ("marks dictionary after update: \n", marks)
+
+output:
+marks dictionary before update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 91, 'David': 49}
+marks dictionary after update:
+ {'Savita': 67, 'Imtiaz': 88, 'Laxman': 89, 'David': 49, 'Sharad': 51, 'Mushtaq': 61}
+_____________________________________________________________________________________________________________________________________
+Change Dictionary  Elements:
+      Apart from the literal representation of dictionary, where we put comma-separated key:value pairs in curly brackets, we can create dictionary object with built-in dict() function.
+
+Empty Dictionary
+Using dict() function without any arguments creates an empty dictionary object. It is equivalent to putting nothing between curly brackets.
+
+Example
+d1 = dict()
+d2 = {}
+print ('d1: ', d1)
+print ('d2: ', d2)
+
+ output:
+d1: {}
+d2: {}
+
+Dictionary from List of Tuples:
+   The dict() function constructs a dictionary from a list or tuple of two-item tuples.
+       First item in a tuple is treated as key, and the second as its value.
+
+Example
+d1=dict([('a', 100), ('b', 200)])
+d2 = dict((('a', 'one'), ('b', 'two')))
+print ('d1: ', d1)
+print ('d2: ', d2)
+
+output:
+d1: {'a': 100, 'b': 200}
+d2: {'a': 'one', 'b': 'two'}
+
+Dictionary from Keyword Arguments:
+      The dict() function can take any number of keyword arguments with name=value pairs. It returns a dictionary object with the name as key and associates it to the value.
+
+Example
+d1=dict(a= 100, b=200)
+d2 = dict(a='one', b='two')
+print ('d1: ', d1)
+print ('d2: ', d2)
+
+output :
+d1: {'a': 100, 'b': 200}
+d2: {'a': 'one', 'b': 'two'}
+_____________________________________________________________________________________________________________________________________
+Remove Dictionary elements:
+Using del Keyword:
+  del keyword deletes any object from the memory. Here we use it to delete a key-value pair in a dictionary.
+
+Syntax:
+del dict['key']
+
+Example:
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+print ("numbers dictionary before delete operation: \n", numbers)
+del numbers[20]
+print ("numbers dictionary atfer delete operation: \n", numbers)
+
+ output:
+numbers dictionary before delete operation:
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary before delete operation:
+ {10: 'Ten', 30: 'Thirty', 40: 'Forty'}
+
+Example:
+The del keyword with the dict object itself removes it from memory.
+
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+print ("numbers dictionary before delete operation: \n", numbers)
+del numbers
+
+ output:
+numbers dictionary before delete operation:
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+
+Using pop() Method:
+    The pop() method of dict class causes an element with the specified key to be removed from the dictionary.
+
+Syntax:
+val = dict.pop(key)
+The pop() method returns the value of the specified key after removing the key-value pair.
+
+Example:
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+print ("numbers dictionary before pop operation: \n", numbers)
+val = numbers.pop(20)
+print ("numbers dictionary after pop operation: \n", numbers)
+
+output:
+numbers dictionary before pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+nubvers dictionary after pop operation: 
+ {10: 'Ten', 30: 'Thirty', 40: 'Forty'}
+
+Using popitem() Method:
+The popitem() method in dict() class doesn't take any argument. It pops out the last inserted key-value pair, and returns the same as a tuple
+
+Syntax
+val = dict.popitem()
+Return Value
+The popitem() method return a tuple contain key and value of the removed item from the dictionary
+
+Example
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+print ("numbers dictionary before pop operation: \n", numbers)
+val = numbers.popitem()
+print ("numbers dictionary after pop operation: \n", numbers)
+
+output:
+numbers dictionary before pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary after pop operation: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty'}
+
+Using clear() Method:
+   The clear() method in dict class removes all the elements from the dictionary object and returns an empty object.
+
+Syntax:
+dict.clear()
+
+Example:
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+print ("numbers dictionary before clear method: \n", numbers)
+numbers.clear()
+print ("numbers dictionary after clear method: \n", numbers)
+
+output:
+
+numbers dictionary before clear method: 
+ {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty'}
+numbers dictionary after clear method: 
+ {}
+_____________________________________________________________________________________________________________________________________
+copy Dictionary elements:
+
+Since a variable in Python is merely a label or reference to an object in the memory, a simple assignment operator will not create copy of object.
+
+Example:
+d1 = {"a":11, "b":22, "c":33}
+d2 = d1
+print ("id:", id(d1), "dict: ",d1)
+print ("id:", id(d2), "dict: ",d2)
+d1["b"] = 100
+print ("id:", id(d1), "dict: ",d1)
+print ("id:", id(d2), "dict: ",d2)
+
+Output:
+id: 2215278891200 dict: {'a': 11, 'b': 22, 'c': 33}
+id: 2215278891200 dict: {'a': 11, 'b': 22, 'c': 33}
+id: 2215278891200 dict: {'a': 11, 'b': 100, 'c': 33}
+id: 2215278891200 dict: {'a': 11, 'b': 100, 'c': 33}
+ 
+To avoid this, and make a shallow copy of a dictionary, use the copy() method instead of assignment.
+
+Example:
+d1 = {"a":11, "b":22, "c":33}
+d2 = d1.copy()
+print ("id:", id(d1), "dict: ",d1)
+print ("id:", id(d2), "dict: ",d2)
+d1["b"] = 100
+print ("id:", id(d1), "dict: ",d1)
+print ("id:", id(d2), "dict: ",d2)
+
+Output:
+When "d1" is updated, "d2" will not change now because "d2" is the copy of dictionary object, not merely a reference.
+
+id: 1586671734976 dict: {'a': 11, 'b': 22, 'c': 33}
+id: 1586673973632 dict: {'a': 11, 'b': 22, 'c': 33}
+id: 1586671734976 dict: {'a': 11, 'b': 100, 'c': 33}
+id: 1586673973632 dict: {'a': 11, 'b': 22, 'c': 33}
+_____________________________________________________________________________________________________________________________________
+Dictionaries using loop:
+     Unlike a list, tuple or a string, dictionary data type in Python is not a sequence, as the items do not have a positional index. However, traversing a dictionary is still possible with different techniques.
+
+Example :
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+for x in numbers:
+   print (x)
+
+ output:
+10
+20
+30
+40
+
+Example:
+   Once we are able to get the key, its associated value can be easily accessed either by using square brackets operator or with get() method.
+
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+for x in numbers:
+   print (x,":",numbers[x])
+
+output:
+10 : Ten
+20 : Twenty
+30 : Thirty
+40 : Forty
+
+Example:
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+for x in numbers.items():
+   print (x)
+
+output:
+(10, 'Ten')
+(20, 'Twenty')
+(30, 'Thirty')
+(40, 'Forty')
+
+Example:
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+for x,y in numbers.items():
+   print (x,":", y)
+
+output:
+10 : Ten
+20 : Twenty
+30 : Thirty
+40 : Forty
+
+Example 5
+Similarly, the collection of keys in dict_keys object can be iterated over.
+
+numbers = {10:"Ten", 20:"Twenty", 30:"Thirty",40:"Forty"}
+for x in numbers.keys():
+   print (x, ":", numbers[x])
+
+output:
+10 : Ten
+20 : Twenty
+30 : Thirty
+40 : Forty
+_____________________________________________________________________________________________________________________________________
+ Nested Dictionaries:
+   A  dictionary is said to have a nested structure if value of one or more keys is another dictionary. 
+       A nested dictionary is usually employed to store a complex data structure.
+
+marklist = {
+   "Mahesh" : {"Phy" : 60, "maths" : 70},
+   "Madhavi" : {"phy" : 75, "maths" : 68},
+   "Mitchell" : {"phy" : 67, "maths" : 71}
+}
+print(marklist)
+
+output:
+{'Mahesh': {'Phy': 60, 'maths': 70}, 'Madhavi': {'phy': 75, 'maths': 68}, 'Mitchell': {'phy': 67, 'maths': 71}}
+
+Example:
+You can also constitute a for loop to traverse nested dictionary, as in the previous section.
+
+marklist = {
+   "Mahesh" : {"Phy" : 60, "maths" : 70},
+   "Madhavi" : {"phy" : 75, "maths" : 68},
+   "Mitchell" : {"phy" : 67, "maths" : 71}
+}
+for k,v in marklist.items():
+   print (k, ":", v)
+
+output:
+Mahesh : {'Phy': 60, 'maths': 70}
+Madhavi : {'phy': 75, 'maths': 68}
+Mitchell : {'phy': 67, 'maths': 71}

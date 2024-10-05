@@ -1,0 +1,171 @@
+Control Statements:
+          Conditional Statements are used  to run a certain piece of program only if a specific condition is met.
+                If
+               If-else
+               nested if
+               elif
+
+If Statement:
+     If the condition is true then ,the block of code will be executed.
+Syntax:
+     if condition:
+    # body of if statement
+
+discount = 0
+amount = 200
+if amount > 100:
+   discount = amount * 10 / 100
+print("amount = ", amount - discount)
+
+output:
+amount =  180.0
+
+name = 'Joe'
+if name == 'Joe':
+     print('Hello joe')
+
+output:
+Hello joe
+
+if-else Statement:
+
+     Along with the if statement, else keyword can also be optionally used. 
+     It provides an alternate block (else)of statements to be executed if the Boolean expression ( if statement) is not true. 
+
+Syntax:
+if boolean_expression:
+    statement1
+    statement2
+    …
+    statementN
+else:
+    statement1
+    statement2
+    …
+    statementN
+
+
+age=25
+print ("age: ", age)
+if age >=18:
+   print ("eligible to vote")
+else:
+   print ("not eligible to vote")
+
+output:
+eligible to vote
+
+x=int(input("enter the first value"))
+y=int(input("enter the second value"))
+if(x<y):
+    print("x is lesser value")
+else:
+    print("y is lesser value")
+
+
+name = 'Joe'
+if name == 'Fred':
+     print('Hello Fred')
+else:
+     print("I don't know who you are!")
+
+output:
+I don't know who you are!
+
+elif Statement:
+      
+      The elif statement allows you to check multiple expressions for TRUE and execute a block of code as soon as one of the conditions evaluates to TRUE.
+      Similar to the else statement, the elif statement is optional.
+       However, unlike else, for which there can be at the most one statement; there can be an arbitrary number of elif statements following an if.
+       The elif keyword is Python's way of saying "if the previous conditions were not true, then try this condition".
+
+Syntax:
+if boolean_expression1:
+    statement(s)
+elif boolean_expression2:
+    statement(s)
+elif boolean_expression3:
+    statement(s)
+else:
+    statement(s)
+
+amount = 2500
+print('Amount = ',amount)
+if amount > 10000:
+   discount = amount * 10 / 100
+elif amount < 5000:
+   discount = amount * 10 / 100
+elif amount < 1000:
+   discount = amount * 5 / 100
+else:
+   discount=0
+print('Payable amount = ',amount - discount)
+
+output:
+Amount =  2500
+Payable amount =  2250.0
+
+x = 5
+if x > 10:
+    print("x is greater than 10")
+elif x<20:
+    print("x is greater than 20")
+else:
+    print("x is not greater than 10 and 20")
+
+
+Example
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+
+output:
+a and b are equal
+
+
+ Nested If Statements:
+
+       There may be a situation when you want to check for another condition after a condition resolves to true. 
+        In such a situation, you can use the nested if construct.
+
+Syntax:
+if boolean_expression:
+    if boolean_expression:
+        statement(s)
+    else:
+        statement(s)
+else:
+    statement(s)
+
+number = 5
+if (number >= 0):
+    
+    if number == 0:
+      print('Number is 0')
+    
+    else:
+        print('Number is positive')
+else:
+    print('Number is negative')
+
+output:
+Number is positive
+
+x = 30
+y = 10
+if x >= y:
+    print("x is greater than or equals to y")
+    if x == y:
+        print("x is equals to y")
+    else:
+        print("x is greater than y")
+else:
+    print("x is less than y")
+
+output:
+x is greater than or equals to y
+x is greater than y
+

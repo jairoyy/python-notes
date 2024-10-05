@@ -1,0 +1,37 @@
+Client side:
+
+import socket
+
+c=socket.socket()
+host=socket.gethostname()
+c.connect((host,1052))
+
+name=input("Enter your name:")
+c.send(bytes(name,'utf-8'))
+
+print(c.recv(1024).decode())
+
+Server side:
+
+import socket
+
+#create socket
+s=socket.socket()#ipv4/6,tcp/udp
+host=socket.gethostname()
+print("socket created")
+
+#making server socket
+s.bind((host,1052))#ip addr,port no(0-65536)
+
+#listening to client
+s.listen(3)#no.of.connections
+print("waiting for connections")
+
+while True:
+    c,addr=s.accept()
+    print("Got connection from :",addr)
+    name = c.recv(1024).decode()#buffer size,at a time receive 1024 bits
+    print("connected with",addr,name)
+
+    c.send(bytes("welcome to cadd centre hnourektytu uhjuctyu",'utf-8'))#format
+    c.close()

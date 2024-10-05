@@ -1,0 +1,211 @@
+TURTLE:
+    Turtle is a special feature of Python. Using Turtle, we can easily draw in a drawing board.
+
+    First, we import the turtle module. Then create a window, we create a turtle object, and using the turtle() method we can draw on the drawing board.
+
+turtle method:
+METHOD	      PARAMETER	                       DESCRIPTION
+
+Turtle()	           None	         It creates and returns a new turtle object
+forward()           amount	         It moves the turtle forward by the specified amount
+backward()         amount	         It moves the turtle backward by the specified amount
+right()	           angle	         It turns the turtle clockwise
+left()	           angle	         It turns the turtle counter clockwise
+penup()	           None	         It picks up the turtle’s Pen
+pendown()           None	         Puts down the turtle’s Pen
+up()	           None	         Picks up the turtle’s Pen
+down()	           None	         Puts down the turtle’s Pen
+color()	        Color name	         Changes the color of the turtle’s pen
+fillcolor()	        Color name	         Changes the color of the turtle will use to fill a polygon
+heading()          None	         It returns the current heading
+position()	          None	         It returns the current position
+goto()	           x, y	         It moves the turtle to position x,y
+begin_fill()         None	         Remember the starting point for a filled polygon
+end_fill()	         None	         It closes the polygon and fills with the current fill color
+shape()	       shapename	         Should be ‘arrow’, ‘classic’, ‘turtle’ or ‘circle’
+
+import turtle
+name=turtle.Turtle()
+name.shape()
+
+import turtle
+name=turtle.Turtle()
+name.shape()
+name.shape("turtle")
+
+import turtle
+name=turtle.Turtle()
+name.shape()
+name.shape("turtle")
+name.color()
+name.forward(100)
+name.color("red")
+
+import turtle
+name=turtle.Turtle()
+name.shape()
+name.shape("turtle")
+name.color()
+name.forward(100)
+name.color("blue","red")
+
+Set Background color:
+  Need to create a new drawing board (window)and a turtle
+  Window as wn
+turtle.bgcolor(*args)
+Parameters
+   args – a color string or three numbers in the range 0..colormode or a 3-tuple of such numbers
+   Set or return background color of the TurtleScreen.
+
+import turtle
+name=turtle.Turtle()
+name.color("red")
+name.shape("turtle")
+wn=turtle.Screen()
+wn.bgcolor("black")
+
+Set title:
+  turtle.title(titlestring)
+Parameters
+titlestring – a string that is shown in the titlebar of the turtle graphics window
+  Set title of turtle window to titlestring.
+
+import turtle
+name=turtle.Turtle()
+name.color("red")
+name.shape("turtle")
+wn=turtle.Screen()
+wn.bgcolor("black")
+wn.title("program Examples")
+
+Background picture:
+     turtle.bgpic(picname=None)
+Parameters
+picname – a string, name of a gif-file or "nopic", or None
+
+Set background image or return name of current backgroundimage. If picname is a filename, set the corresponding image as background. If picname is "nopic", delete background image, if present. If picname is None, return the filename of the current backgroundimage.
+
+import turtle
+name=turtle.Turtle()
+wn=turtle.Screen()
+wn.bgpic("python2.gif")
+
+Directions(motions):
+  turtle.setheading(to_angle):
+Parameters
+to_angle – a number (integer or float)
+  Set the orientation of the turtle to to_angle. 
+
+import turtle
+t=turtle.Turtle()
+t.setheading(90)
+
+import turtle
+t=turtle.Turtle()
+t.setheading(180)
+
+import turtle
+t=turtle.Turtle()
+t.setheading(270)
+
+import turtle
+t=turtle.Turtle()
+t.setheading(360)
+
+Forward() and Backward()[left(),right()]
+  turtle.forward(distance):
+  turtle.fd(distance)
+Parameters
+distance – a number (integer or float)
+  Move the turtle forward by the specified distance, in the direction the turtle is headed.
+import turtle
+t=turtle.Turtle()
+t.forward(100)
+
+import turtle
+t=turtle.Turtle()
+t.fd(100)
+
+turtle.backward(distance):
+Parameters
+  distance – a number
+  Move the turtle backward by distance, opposite to the direction the turtle is headed. Do not change the turtle’s heading.
+
+import turtle
+t=turtle.Turtle()
+t.backward(100)
+
+turtle.left(angle):
+turtle.lt(angle)
+Parameters
+  angle – a number (integer or float)
+  Turn turtle left by angle units. (Units are by default degrees, but can be set via the degrees() and radians() functions.) Angle orientation depends on the turtle mode, see mode().
+
+import turtle
+t=turtle.Turtle()
+t.forward(100)
+t.left(45)
+t.forward(100)
+
+turtle.right(angle):
+turtle.rt(angle)
+Parameters
+  angle – a number (integer or float)
+  Turn turtle right by angle units. (Units are by default degrees, but can be set via the degrees() and radians() functions.) Angle orientation depends on the turtle mode, see mode().
+
+import turtle
+t=turtle.Turtle()
+t.forward(100)
+t.right(75)
+t.forward(100)
+
+Drawing a Square Shape:
+
+import turtle
+t=turtle.Turtle()
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+
+turtle.hideturtle(): 
+turtle.ht()
+  Make the turtle invisible. It’s a good idea to do this while you’re in the middle of doing some complex drawing, because hiding the turtle speeds up the drawing observably.
+
+import turtle
+t=turtle.Turtle()
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+t.hideturtle()
+
+FillColor:
+  turtle.begin_fill(): 
+To be called just before drawing a shape to be filled.
+
+turtle.end_fill():
+  Fill the shape drawn after the last call to begin_fill().
+
+import turtle
+t=turtle.Turtle()
+t.begin_fill()
+t.fillcolor("yellow")
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+t.end_fill()
+
+Drawing a Circle:
+  turtle.circle(radius)
+Parameters
+radius – a number
+
+import turtle
+t=turtle.Turtle()
+t.color("white")
+wn=turtle.Screen()
+wn.bgcolor("Black")
+t.begin_fill()
+t.fillcolor("yellow")
+t.circle(100)
+t.end_fill()
+t.hideturtle()

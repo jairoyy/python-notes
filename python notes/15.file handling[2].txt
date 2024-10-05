@@ -1,0 +1,202 @@
+File Handling:
+      The built-in open() function is the crucial function to work with the files. 
+      To perform any file-related operations such as creating the file, writing the file, reading the file, etc., you need to use an open() function.
+
+      The built-in open() function is useful to open the physical file and map to the file object to perform the file-related operations in python.
+
+syntax:
+open(filename, mode)
+The open() function will accept two parameters; those are
+
+filename - It's the file's name, including the file path.
+mode - The mode parameter is useful to indicate the purpose of opening the file, e.g., read, write, etc., and it's optional.
+
+The following table lists the different modes available in python to perform create, write, update, and delete operations on files in python.
+
+ 
+
+Mode	      Description
+x	It is used to create the file.
+w	It is used to open a file for writing only.
+
+It overwrites the content if the file is already exists or create a new file if the file doesn't exist.
+The file handler exists at the beginning.
+
+w+	It is used to open a file for both writing and reading.
+The file handler exists at the beginning of the file.It overwrites the previous content of the opened file if the file already exists.It creates a new file if no file exists.
+
+r	It is used to open a file for reading only.
+The file Handler exists at the beginning.It raises i/o error if the file does not exist.
+
+r+	It is used to open a file for both reading and writing.
+File handler exists at the beginning.
+
+a	It is used to open a file for appending only.
+The file handler exists at the end of the previously written file if file already exists.
+If the file doesn't exist,it creates a new file.The newly written data will be added at the end of the file.
+
+a+	It is used to open a file for both appending and reading.
+File handler exist at the end of the file if file already exist or it will create a new file if file doesn't exist.
+
+Python Open File to Write the Data
+
+file = open("testfile.txt", "w")
+file.write("Welcome to program")
+file.close()
+
+reading from the file:
+   We need to open the file in read (r) mode using the built-in open() function to read the file content.
+   After that, you need to use read methods to read the data from files.
+   we have different methods to read the data from files.
+
+ Method	                      Description
+read()	          It is useful to read and return the complete text of the file.
+readline()	  It is useful to read and return the single-line text of the file.
+readlines()	  It is useful to read all lines of text and return a list object.
+
+Read Data from Files
+Using the read() method, you can read the complete content of the file in python. Following is the example of reading the data of files using the read() method in python.
+
+file = open("testfile1.txt", "w")
+file.write("Hi\n")
+file.write("Welcome to pictures")
+file.close()
+
+reading data from the file:
+file = open("testfile1.txt", "w")
+file.write("Hi\n")
+file.write("Welcome to pictures")
+file.close()
+file = open("testfile1.txt", "r")
+print(file.read())
+file.close()
+
+output:
+Hi
+Welcome to pictures
+
+  If you observe the above example, we created a file (testfile1.txt) and wrote the required text. After that, we used the read() function to read the content of the file.
+  It is always important to close the file after writing or reading the data from a file. In some cases, the file data will not update until we close the file.
+
+Read Specified Characters from the File:
+By default, the read() function will return the whole text of the file. Instead of reading the entire text of the file, you can specify the number of characters you want in the read() function.
+
+#Open and read the file content
+file = open("testfile1.txt", "r")
+print(file.read(7))
+file.close()
+
+output:
+Hi
+Welc
+
+As we have \n character in the first line of text, we are able to see 6 characters in the result.
+
+Read Lines from File:
+  Using the read() function, we can read the whole text or a specified number of characters from the file. 
+  If you want to read a single line of text, you need to use the readline() method. 
+  The readline() method will return the first line of text from the file. Following is the example of reading a single line of text using the readline() method in python.
+
+#Open and read the file content
+file = open("testfile1.txt", "r")
+print(file.readline())
+file.close()
+ 
+output:
+Hi
+
+#Open and read the file content
+file = open("testfile1.txt", "r")
+print(file.readline())
+print(file.readline())
+file.close()
+
+output:
+Hi
+
+Welcome to pictures
+
+readlines() method:
+    If we want to read all the text lines from the file as a list, you need to use the readlines() method as shown below.
+    The readlines() method returns a list containing each line in the file as a list item.
+
+file = open("testfile.txt", "r")
+print(file.readlines())
+file.close()
+
+output:
+['Hi\n', 'Welcome to pictures']
+
+
+file = open("testfile.txt", "w")
+file.write("Welcome to program")
+file.close()
+file = open("testfile.txt")
+print(file.read())
+
+#or
+
+file = open("testfile.txt", "r")
+print(file.read())
+
+Example:
+f1=open("file.txt","w")
+f1.write("welcome to pictures")
+f1.close()
+file = open("file.txt", "r")
+print(file.read())
+
+output:
+welcome to pictures
+
+f1=open("file.txt","w")
+f1.write("welcome to pictures")
+f1= open("file.txt", "r+")
+f1.write("Hi")
+print(f1.read())
+f1.close()
+
+output:
+lcome to pictures
+
+f1=open("file.txt","w+")
+f1.write("welcome to pictures")
+f1.write("Hi")
+f1.seek(0)
+print(f1.read())
+f1.close()
+
+output:
+welcome to picturesHi
+
+Append Text to a File:
+   The w mode will always overwrite the existing file content.
+   If you want to append text to the file without losing the current content, you need to use the open() method with a or a+ mode.
+   The a or a+ modes will append text to the end of the file.
+
+Example:
+file = open("testfile1.txt", "a")
+file.write("easy to learn")
+file.close()
+
+#Open and read the file content
+file = open("testfile1.txt", "r")
+print(file.read())
+
+Delete Files:
+
+ We need to import a built-in OS module to delete or remove the directory files. After importing the OS module, use the remove() function to delete the required files.
+
+import os
+os.remove("testfile1.txt")
+
+Check If File Already Exist
+If you try to delete the file that does not exist in the directory, the OS module remove() method will throw FileNotFoundError exception. Before deleting the file, you need to verify whether the file already exists or not.
+
+import os
+if os.path.exists("testfile1.txt"):
+    os.remove("testfile1.txt")
+else:
+    print("File not exist")
+
+ 

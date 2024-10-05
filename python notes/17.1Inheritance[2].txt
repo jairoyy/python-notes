@@ -1,0 +1,305 @@
+Inheritance:
+     The process of inheriting the properties of the parent class into a child class is called inheritance.
+     The existing class is called a base class or parent class and the new class is called a subclass or child class or derived class.
+     In Object-oriented programming, inheritance is an important aspect. 
+     The main purpose of inheritance is the reusability of code because we can use the existing class to create a new class instead of creating it from scratch.
+
+     In inheritance, the child class acquires all the data members, properties, and functions from the parent class. Also, a child class can also provide its specific implementation to the methods of the parent class.
+
+     For example, In the real world, Car is a sub-class of a Vehicle class. We can create a Car by inheriting the properties of a Vehicle such as Wheels, Colors, Fuel tank, engine, and add extra properties in Car as required.
+
+Syntax:
+class BaseClass:
+  Body of base class
+class DerivedClass(BaseClass):
+  Body of derived class
+
+class A:
+    def feature1(self):
+        print("feature 1 working")
+    def feature2(self):
+        print("feature 2 working")
+a1=A()
+a2=A()
+a1.feature1()
+a2.feature2()
+
+output:
+feature 1 working
+feature 2 working
+
+Types Of Inheritance:
+ Based upon the number of child and parent classes involved, there are five types of inheritance.
+ The type of inheritance are listed below:
+   Single inheritance
+   Multiple Inheritance
+   Multilevel inheritance
+   Hierarchical Inheritance
+   Hybrid Inheritance
+
+Single Inheritance:
+   In single inheritance, a child class inherits from a single-parent class. Here is one child class and one parent class.
+
+Example:
+class Vehicle:
+    def Vehicle_info(self):
+        print('Inside Vehicle class')
+
+class Car(Vehicle):
+    def car_info(self):
+        print('Inside Car class')
+car = Car()
+car.Vehicle_info()
+car.car_info()
+
+Output:
+Inside Vehicle class
+Inside Car class
+
+class A:
+    def feature1(self):
+        print("feature 1 working")
+    def feature2(self):
+        print("feature 2 working")
+class B(A):
+    def feature3(self):
+        print("feature 3 working")
+    def feature4(self):
+        print("feature 4 working")
+a1=B()
+a1.feature1()
+a1.feature2()
+a1.feature3()
+a1.feature4()
+
+output:
+feature 1 working
+feature 2 working
+feature 3 working
+feature 4 working
+
+Multiple Inheritance:
+  In multiple inheritance, one child class can inherit from multiple parent classes. 
+  So here is one child class and multiple parent classes.
+
+Example:
+class Person:
+    def person_info(self, name, age):
+        print('Inside Person class')
+        print('Name:', name, 'Age:', age)
+
+class Company:
+    def company_info(self, company_name, location):
+        print('Inside Company class')
+        print('Name:', company_name, 'location:', location)
+
+class Employee(Person, Company):
+    def Employee_info(self, salary, skill):
+        print('Inside Employee class')
+        print('Salary:', salary, 'Skill:', skill)
+
+
+emp = Employee()
+emp.person_info('Jessa', 28)
+emp.company_info('Google', 'Abitha')
+emp.Employee_info(12000, 'Machine Learning')
+
+Output:
+Inside Person class
+Name: Jessa Age: 28
+
+Inside Company class
+Name: Google location:Abitha
+
+Inside Employee class
+Salary: 12000 Skill: Machine Learning
+
+class A:
+    def feature1(self):
+        print("feature 1 working")
+    def feature2(self):
+        print("feature 2 working")
+class B:
+    def feature3(self):
+        print("feature 3 working")
+    def feature4(self):
+        print("feature 4 working")
+class C(A,B):
+    def feature5(self):
+        print("feature 5 working")
+    
+a1=C()
+a1.feature1()
+a1.feature2()
+a1.feature3()
+a1.feature4()
+a1.feature5()
+
+output:
+feature 1 working
+feature 2 working
+feature 3 working
+feature 4 working
+feature 5 working
+
+Multilevel inheritance:
+  A class inherits from a child class or derived class. Suppose three classes A, B, C. 
+  A is the superclass, B is the child class of A, C is the child class of B. 
+  In other words, we can say a chain of classes is called multilevel inheritance.
+
+Example:
+class Vehicle:
+    def Vehicle_info(self):
+        print('Inside Vehicle class')
+
+class Car(Vehicle):
+    def car_info(self):
+        print('Inside Car class')
+
+class SportsCar(Car):
+    def sports_car_info(self):
+        print('Inside SportsCar class')
+
+s_car = SportsCar()
+s_car.Vehicle_info()
+s_car.car_info()
+s_car.sports_car_info()
+ 
+Output:
+Inside Vehicle class
+Inside Car class
+Inside SportsCar class
+
+class A:
+    def feature1(self):
+        print("feature 1 working")
+    def feature2(self):
+        print("feature 2 working")
+class B(A):
+    def feature3(self):
+        print("feature 3 working")
+    def feature4(self):
+        print("feature 4 working")
+class C(B):
+    def feature5(self):
+        print("feature 5 working")
+    
+a1=C()
+a1.feature1()
+a1.feature2()
+a1.feature3()
+a1.feature4()
+a1.feature5()
+
+output:
+feature 1 working
+feature 2 working
+feature 3 working
+feature 4 working
+feature 5 working
+
+Hierarchical Inheritance:
+   In Hierarchical inheritance, more than one child class is derived from a single parent class.
+   In other words, we can say one parent class and multiple child classes.
+
+Example:
+class Vehicle:
+    def info(self):
+        print("This is Vehicle")
+
+class Car(Vehicle):
+    def car_info(self, name):
+        print("Car name is:", name)
+
+class Truck(Vehicle):
+    def truck_info(self, name):
+        print("Truck name is:", name)
+
+obj1 = Car()
+obj1.info()
+obj1.car_info('BMW')
+
+obj2 = Truck()
+obj2.info()
+obj2.truck_info('Ford')
+
+Output:
+This is Vehicle
+Car name is: BMW
+This is Vehicle
+Truck name is: Ford
+
+class A:
+    def feature1(self):
+        print("feature 1 working")
+    def feature2(self):
+        print("feature 2 working")
+class B(A):
+    def feature3(self):
+        print("feature 3 working")
+    def feature4(self):
+        print("feature 4 working")
+class C(A):
+    def feature5(self):
+        print("feature 5 working")
+    
+a1=B()
+a2=C()
+a1.feature1()
+a1.feature2()
+a1.feature3()
+a1.feature4()
+a2.feature5()
+a2.feature1()
+
+output:
+feature 1 working
+feature 2 working
+feature 3 working
+feature 4 working
+feature 5 working
+feature 1 working
+
+Hybrid Inheritance:
+    When inheritance is consists of multiple types or a combination of different inheritance is called hybrid inheritance.
+
+Example:
+class Vehicle:
+    def vehicle_info(self):
+        print("Inside Vehicle class")
+
+class Car(Vehicle):
+    def car_info(self):
+        print("Inside Car class")
+
+class Truck(Vehicle):
+    def truck_info(self):
+        print("Inside Truck class")
+
+# Sports Car can inherits properties of Vehicle and Car
+class SportsCar(Car, Vehicle):
+    def sports_car_info(self):
+        print("Inside SportsCar class")
+
+# create object
+s_car = SportsCar()
+
+s_car.vehicle_info()
+s_car.car_info()
+s_car.sports_car_info()
+
+s_car1=Truck()
+s_car1.truck_info()
+s_car1.vehicle_info()
+
+output:
+Inside Vehicle class
+Inside Car class
+Inside SportsCar class
+Inside Truck class
+Inside Vehicle class
+
+
+
+
+

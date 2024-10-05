@@ -1,0 +1,339 @@
+Polymorphism:
+  
+  Polymorphism means providing an ability to take more than one form, and it’s the main concept of object-oriented programming.
+  
+  Generally, polymorphism is a combination of two words: poly and another one is morphs. Here poly means “multiple” and morphs means “forms” so polymorphism means many forms.
+
+  The polymorphism will provide an ability to perform different tasks with a single type entity such as method, operator, etc. For example, the python built-in len() function is useful to perform various operations, as shown below.
+
+Example:
+print("Length of String: {}".format(len("Welcome to programming")))
+print("No. of Items in List: {}".format(len(["Suresh", "Rohini", "Trishi", "Hanshu"])))
+print("No. of Keys in Dict: {}".format(len({"Name": "Suresh", "Location": "Hyderabad"})))
+
+  The same len() function is used to perform different operations such as calculating the length of string, counting the numbers of items in the list, getting the number of keys in the dictionary, etc., based on the requirements.
+
+output: 
+Length of String: 18
+No. of Items in List: 4
+No. of Keys in Dict: 2
+
+We can also create your own functions to implement polymorphism.
+
+def addition(a, b, c = 0):
+  print("sum = {}".format(a + b + c))
+
+addition(10, 20)
+addition(30, 40, 50)
+ 
+output:
+sum = 30
+sum = 120
+
+Polymorphism with Classes:
+  The polymorphism will provide an ability to the classes to create different methods that are called with the same name.
+
+class Name:
+   def getDetails(self, info):
+     print("Name: {}".format(info))
+
+class Location:
+   def getDetails(self, info):
+     print("Location: {}".format(info))
+
+u1 = Name()
+u2 = Location()
+u1.getDetails("Suresh ")
+u2.getDetails("Hyderabad")
+
+output:
+Name: Suresh 
+Location: Hyderabad
+
+Polymorphism  with Inheritance:
+  We can inherit all the base class properties and methods in child class based on our requirements.
+  
+  The polymorphism also provides an ability to create the child class methods with the same parent class method names and signature to modify the functionality of base class methods in child class.
+
+class user:
+
+   def getinfo(self):
+     print("Learn Python")
+
+#Child/Derived Class
+class Employees(user):
+
+   def getinfo(self):
+     print("Welcome to programming")
+
+e1 = Employees()
+e1.getinfo()
+e2=user()
+e2.getinfo()
+
+output:
+Welcome to programming
+Learn Python
+
+Types of polymorphism:
+    Duck Typing
+    operator overloading
+    method overloading
+    method overriding
+
+Duck Typing:
+  Duck typing is a variation of Dynamic Programming and uses a form of abductive reasoning for type checking.            .
+
+ “If it walks like a duck, and it quacks like a duck, then it is probably be a duck.”
+
+  The most important aspect of this phrase is, we don’t actually know if the object is a duck, we infer/reduce from a list of behaviour that the object is a duck. 
+
+  It is important to observe that we are not checking internally if the two objects are the same, but rather using known external behaviour to match the two objects.
+
+  This kind of reasoning can be transferred to the domain of computer science. 
+
+  In dynamic languages, there is no explicit type checking. But for certain use cases to makes sure the way a function behaves properly, it becomes important that the input type must be verified. 
+
+  This can cause various restrictions and design issues in terms of Dynamic Typing so Duck Typing was brought into the picture.
+
+  Duck typing gives more importance to the methods(behavior) defined inside the object, rather than the object itself. 
+  If the objects have the required methods, the object is allowed to pass.
+
+
+class Pycharm:
+    def execute(self):
+        print("compiling")
+        print("running")
+class Laptop:
+    def code(self,ide):
+        ide.execute()
+ide=Pycharm()
+lap1=Laptop()
+lap1.code(ide)
+
+
+class Pycharm:
+    def execute(self):
+        print("compiling")
+        print("running")
+class MyEditor:
+    def execute(self):
+        print("spell check")
+        print("convention check")
+        print("compiling")
+        print("running")
+class Laptop:
+    def code(self,ide):
+        ide.execute()
+
+ide=MyEditor()
+lap1=Laptop()
+lap1.code(ide)
+
+Method overloading:
+     Method overloading means creating multiple methods with the same name but with different return types or parameters. 
+     Using method overloading, you can perform different operations with the same function name by passing different arguments.
+     Like other programming languages, method overloading is not supported in python. If you try to overload a method in python, it won’t raise any compile-time errors.
+     Instead, it will consider using the last defined method. 
+     If you try to call the overloaded methods with different arguments, you will get errors at runtime.
+
+class Calculate:
+    def add(self, a, b):
+      print("a + b = {}".format(a + b))
+
+    def add(self, a, b, c):
+      print("a + b + c = {}".format(a + b + c))
+
+c1 = Calculate()
+c1.add(10, 20, 30)
+c1.add(10,20)
+
+output:
+a + b + c = 60
+Traceback (most recent call last):
+File "D:\pythonclasses.py", line 10, in
+c1.add(10,20)
+TypeError: add() missing 1 required positional argument: 'c'
+
+
+How to Implement Method Overloading in Python?
+    To achieve method overloading in python, you need to create methods either using default arguments or variable-length arguments.
+
+Using Default Arguments:
+   If we create a method with default arguments, you can call that method with a different number of arguments to achieve method overloading.
+class Calculate:
+   def add(self, a, b, c = 0):
+     if c > 0:
+         print("a + b + c = {}".format(a + b + c))
+     else:
+         print("a + b = {}".format(a + b))
+
+c1 = Calculate()
+c1.add(10, 20, 30)
+c1.add(10,20)
+
+output:
+a + b + c = 60
+a + b = 30
+
+Using Variable Length Arguments:
+    We can use variable-length arguments in the method to achieve method overloading in python. If you create a method with variable length arguments, we can call that method with a different number of arguments.
+
+class Calculate:
+   def add(self, *args):
+     result = 0
+     for param in args:
+        result += param
+        print("Result: {}".format(result))
+
+c1 = Calculate()
+c1.add(10, 20, 30)
+c1.add(10,20)
+
+output:
+Result: 60
+Result: 30
+
+class Student:
+    def sum(self,a=None,b=None,c=None):
+        s=0
+        if a!=None and b!=None and c!=None:
+            s=a+b+c
+        elif a!=None and b!=None:
+            s=a+b
+        else:
+            s=a
+        return s
+s1=Student()
+print(s1.sum(5,9,6))
+
+output:
+20
+
+Method overriding:
+      Method overriding means overriding the base class method in child class by creating the method with same name and signature to perform different operations.
+      In Inheritance, you can inherit the base class methods and use them in child classes. 
+      If required, we can also modify the functionality of base class methods in child class by creating the methods with the same name and signature to perform different tasks.
+
+Example:
+#Base Class
+class User:
+
+   def getinfo(self):
+     print("Learn Python")
+
+#Derived Class
+class Employees(User):
+
+   def getinfo(self):
+     print("Welcome to picture")
+
+e1 = Employees()
+e1.getinfo()
+ 
+output:
+Welcome to picture
+
+class A:
+    def show(self):
+        print("in a show")
+class B(A):
+    pass
+    
+a1=B()
+a1.show()
+
+output:
+in a show
+
+class A:
+    def show(self):
+        print("in a show")
+class B(A):
+    def show(self):
+        print("in B show")
+a1=B()
+a1.show()
+
+output:
+in B show
+
+operator overloading:
+   The same operator performs different actions depending on the operands used. Let us understand this using the plus operator.
+   Modifying the behavior of an operator by redefining the method an operator invokes is called Operator Overloading. 
+   we can see that the plus operator performs three different operations depending on the operands.
+   It performs the sum operation if the operands are numbers, concatenation if the operands are strings, and join operation if the operands are lists. 
+  
+Example:
+num1 = 20
+num2 = 5
+print(type(num1))
+print(type(num2))
+sum = num1 + num2
+print(sum)
+
+Output:
+<class ‘int’>
+<class ‘int’>
+25
+
+str1 = "Hello"
+str2 = "sakshi"
+print(type(str1))
+print(type(str2))
+str3 = str1 + str2
+print(str3)
+
+Output:
+<class ‘str’>
+<class ‘str’>
+Hellosakshi
+
+Operators on Lists: 
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+print(type(list1))
+print(type(list2))
+list3 = list1 + list2
+print(list3)
+Output
+
+<class ‘list’>
+<class ‘list’>
+[1, 2, 3, 4, 5, 6]
+
+  Python gives us the ability to modify the operation of an operator when used for specific operands. 
+  Every time we use an operator, Python internally invokes a magic method. In the case of +, Python invokes the __add__ method.
+
+class Student:
+    def __init__(self,m1,m2):
+        self.m1=m1
+        self.m2=m2
+    def __add__(self,other):
+        m1=self.m1+other.m1
+        m2=self.m2+other.m2
+        s3=Student(m1,m2)
+        return s3
+s1=Student(58,69)
+s2=Student(60,65)
+s3=s1+s2
+print(s3.m1)
+print(s3.m2)
+
+output:
+118
+134
+
+class Fruit:
+   def __init__(self, num):
+       self.num = num
+   def __add__(self, other):
+       sum = self.num + other.num
+       return sum
+obj1 = Fruit(5)
+obj2 = Fruit(4)
+objs = obj1 + obj2
+print(objs)
+
+Output:
+9

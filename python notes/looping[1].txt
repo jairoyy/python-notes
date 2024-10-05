@@ -1,0 +1,289 @@
+ while Loops:
+
+     Normally, flow of execution of steps in a computer program goe from start to end.
+     However, instead of the next step, if the flow is redirected towards any earlier step, it constitutes a loop.
+     A while loop statement in Python programming language repeatedly executes a target statement as long as a given boolean expression is true.
+
+Syntax:
+  while expression:
+   statement(s)
+         The while keyword is followed by a boolean expression, and then by colon symbol, to start an indented block of statements. 
+         Here, statement(s) may be a single statement or a block of statements with uniform indent.
+         The condition may be any expression, and true is any non-zero value. The loop iterates while the boolean expression is true.
+          As soon as the expression becomes false, the program control passes to the line immediately following the loop.
+         If it fails to turn false, the loop continues to run, and doesn't stop unless forcefully stopped. 
+         Such a loop is called infinite loop, which is undesired in a computer program.
+
+Example:
+
+count=0
+while count<5:
+   count+=1
+   print ("Iteration no. {}".format(count))
+
+print ("End of while loop")
+We initialize count variable to 0, and the loop runs till "count<5". In each iteration, count is incremented and checked. If it's not 5 next repetion takes place. Inside the looping block, instantenous value of count is printed. When the while condition becomes false, the loop terminates, and next statement is executed, here it is End of while loop message.
+
+Output:
+Iteration no. 1
+Iteration no. 2
+Iteration no. 3
+Iteration no. 4
+Iteration no. 5
+End of while loop
+
+i = 1
+while i < 10:
+  print(i)
+  i += 1
+
+output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+var='0'
+while var.isnumeric()==True:
+   var=input('enter a number..')
+   if var.isnumeric()==True:
+      print ("Your input", var)
+print ("End of while loop")
+
+Output:
+enter a number..10
+Your input 10
+enter a number..100
+Your input 100
+enter a number..543
+Your input 543
+enter a number..qwer
+End of while loop
+
+The Infinite Loop:
+          A loop becomes infinite loop if a condition never becomes FALSE. 
+         You must be cautious when using while loops because of the possibility that this condition never resolves to a FALSE value. 
+          This results in a loop that never ends. Such a loop is called an infinite loop.
+          An infinite loop might be useful in client/server programming where the server needs to run continuously so that client programs can communicate with it as and when required.
+
+The while-else Loop:
+
+           Python supports having an else statement associated with a while loop statement.
+
+         If the else statement is used with a while loop, the else statement is executed when the condition becomes false before the control shifts to the main line of execution.
+
+Example:
+count=0
+while count<5:
+   count+=1
+   print ("Iteration no. {}".format(count))
+else:
+   print ("While loop over. Now in else block")
+print ("End of while loop")
+
+Output:
+Iteration no. 1
+Iteration no. 2
+Iteration no. 3
+Iteration no. 4
+Iteration no. 5
+While loop over. Now in else block
+End of while loop
+
+ a = 1
+while a < 5:
+  print(a)
+  a += 1
+else:
+  print("Else block in while loop")
+
+output:
+1
+2
+3
+4
+Else block in while loop
+
+
+ For Loop:
+      A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
+
+     This is less like the for keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.
+
+     With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+
+fruits = ["app", "bat", "cherish"]
+for x in fruits:
+  print(x)
+
+output:
+app
+bat
+cherish
+
+for x in "banana":
+  print(x)
+
+output:
+b
+a
+n
+a
+n
+a
+
+
+Else in For Loop:
+     The else keyword in a for loop specifies a block of code to be executed when the loop is finished:
+
+for x in range(6):
+  print(x)
+else:
+  print("Finally finished!")
+
+output:
+0
+1
+2
+3
+4
+5
+Finally finished!
+
+Example
+Break the loop when x is 3, and see what happens with the else block:
+
+for x in range(6):
+  if x == 3: 
+      break
+  print(x)
+else:
+  print("Finally finished!")
+
+output:
+0
+1
+2
+
+Nested Loops:
+      A nested loop is a loop inside a loop.
+      The "inner loop" will be executed one time for each iteration of the "outer loop":
+
+adj = ["red", "big", "taste"]
+fruits = ["app", "bat", "cherish"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+
+output:
+red app
+red bat
+red cherish
+big app
+big bat
+big cherish
+taste app
+taste bat
+taste cherish
+
+ break Statement:
+       With the break statement we can stop the loop before it has looped through all the items:
+
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  if x == "banana":
+    break
+
+output:
+apple
+banana
+
+Example:
+Exit the loop when x is "banana", but this time the break comes before the print:
+
+fruits = ["app", "banana", "cherish"]
+for x in fruits:
+  if x == "banana":
+    break
+  print(x)
+
+output:
+apple
+
+The continue Statement:
+    With the continue statement we can stop the current iteration of the loop, and continue with the next:
+
+Example
+Do not print banana:
+
+fruits = ["app", "banana", "cherish"]
+for x in fruits:
+  if x == "banana":
+    continue
+  print(x)
+
+output:
+apple
+cherish
+
+The range() Function:
+         To loop through a set of code a specified number of times, we can use the range() function,
+         The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.
+
+Example
+Using the range() function:
+
+for x in range(6):
+  print(x)
+
+output:
+0
+1
+2
+3
+4
+5
+
+The range() function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: range(2, 6), which means values from 2 to 6 (but not including 6):
+
+for x in range(2, 6):
+  print(x)
+
+output:
+2
+3
+4
+5
+
+The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 30, 3):
+
+
+for x in range(2, 30, 3):
+  print(x)
+
+output:
+2
+5
+8
+11
+14
+17
+20
+23
+26
+29
+
+The pass Statement:
+      for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.
+
+Example
+for x in [0, 1, 2]:
+  pass
+

@@ -1,0 +1,73 @@
+BackGround Image:
+
+#C:/Users/STCL10/Downloads/image 02.png
+from tkinter import * 
+from tkinter.ttk import *
+  
+# creating tkinter window 
+root = Tk() 
+  
+# Adding widgets to the root window 
+Label(root, text = 'WELCOME', font =( 
+  'Verdana', 15)).pack(side = TOP, pady = 10) 
+  
+# Creating a photoimage object to use image 
+photo = PhotoImage(file ="pythonimage.png") 
+  
+# here, image option is used to 
+# set image on button 
+Button(root, text = 'Click Me !', image = photo).pack(side = TOP) 
+  
+mainloop() 
+
+from tkinter import*
+root=Tk()
+root.title('bg setting')
+img=PhotoImage(file="pythonimage.png")
+Label(root,image=img).pack()
+mainloop()
+
+Qrcode Generator:
+
+import pyqrcode
+s="this is program"
+myqr1=pyqrcode.create(s)
+myqr1.png("myqr1.png",scale =6)
+ 
+from tkinter import *
+import qrcode
+import cv2
+w=Tk()
+w.geometry("500x500")
+w.title("Qr code")
+img=qrcode.make("Hii baby how are you")   #Its read the paragraph also
+img.save("baby.jpg")   
+
+
+Text to Speech Recognition:
+
+import gtts
+import playsound
+
+text=input("Enter anything")
+sound=gtts.gTTS(text,lang='en') #lang -> ta,fr,slight change in slang only
+sound.save("welcome.mp3")
+playsound.playsound("welcome.mp3")  #Audio file will be created automatically
+   
+    
+print('Process is completed')
+print('Have a nice day')
+
+
+Change icon:
+
+#change icon
+import tkinter
+win=tkinter.Tk()
+win.geometry("300x500")
+win.title("Tkinter")
+win.config(bg="blue")
+win.iconbitmap("C:\\Users\\STLP1\\Downloads\\flower.ico")
+win.mainloop()
+
+

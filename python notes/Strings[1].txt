@@ -1,0 +1,439 @@
+STRINGS:
+  
+  The sequence as a whole, doesn't have any numeric value even if all the characters are digits.
+  To differentiate the string from numbers and other identifiers, the sequence of characters is included within single, double or triple quotes in its literal representation. 
+  Hence, 1234 is a number (integer) but '1234' is a string.
+
+As long as the same sequence of characters is enclosed, single or double or triple quotes don't matter. 
+
+>>> 'Welcome To picture'
+output:
+'Welcome To picture'
+
+>>> "Welcome To programming"
+output:
+'Welcome To programming'
+
+>>> '''Welcome To class'''
+output:
+'Welcome To  class'
+
+>>> """Welcome To sale"""
+output:
+'Welcome To sale'
+
+Looking at the above statements, it is clear that, internally Python stores strings as included in single quotes.
+
+var = "Welcome To object"
+print (type(var))
+
+output:
+<class 'str'>
+
+We want to embed some text in double quotes as a part of string, the string itself should be put in single quotes. To embed a single quoted text, string should be written in double quotes.
+
+var = 'Welcome to "Python Tutorial" from Point'
+print ("var:", var)
+
+output:
+var: Welcome to "Python Tutorial" from Point
+
+var = "Welcome to 'Python Tutorial' from Point"
+print ("var:", var)
+
+output:
+var: Welcome to 'Python Tutorial' from Point
+
+To form a string with triple quotes, you may use triple single quotes, or triple double quotes − both versions are similar.
+
+var = '''Welcome to python'''
+print ("var:", var)
+
+output:
+var: Welcome to python
+
+var = """Welcome to python"""
+print ("var:", var)
+
+output:
+var: Welcome to python
+
+Triple quoted string is useful to form a multi-line string.
+var = '''
+Welcome To
+Python Tutorial
+from Point
+'''
+print ("var:", var)
+
+Output: 
+var:
+Welcome To
+Python Tutorial
+from Point
+______________________________________________________________________________________________________
+Slicing a String:
+
+ Each character in the string has a unique index in the sequence. The index starts with 0. First character in the string has its positional index 0. The index keeps incrementing towards the end of string.
+
+var="HELLO PYTHON"
+var[0]
+Output:
+'H'
+
+var="HELLO PYTHON"
+var[7]
+Output:
+'Y'
+
+var="HELLO PYTHON"
+var[11]
+Output:
+'N'
+
+Negative indexing
+
+var="HELLO PYTHON"
+var[-1]
+Output:
+'N'
+
+var="HELLO PYTHON"
+var[-5]
+Output:
+'Y'
+
+var="HELLO PYTHON"
+var[-12]
+Output:
+'H'
+
+Python defines ":" as string slicing operator. It returns a substring from the original string.
+
+substr=var[x:y]
+  The ":" operator needs two integer operands (both of which may be omitted, as we shall see in subsequent examples). 
+  The first operand x is the index of the first character of the desired slice. 
+  The second operand y is the index of the character next to the last in the desired string. 
+  So var(x:y] separates characters from xth position to (y-1)th position from the original string.
+
+var="HELLO PYTHON"
+print (var)
+print ( var[3:8])
+
+Output: 
+HELLO PYTHON
+LO PY
+
+Negative indexes can also be used for slicing.
+
+var="HELLO PYTHON"
+print ( var[-9:-4])
+
+Output:
+LO PY
+
+var="HELLO PYTHON"
+print ("var[:5]:", var[:5])
+
+output:
+var[:5]: HELLO
+
+var="HELLO PYTHON"
+print ("var[6:]:", var[6:])
+
+output:
+var[6:]: PYTHON
+______________________________________________________________________________________________________
+String Methods:
+Method	                                    Description
+lower()	               It will convert the string into a lowercase.
+
+upper()	               It will convert the string into uppercase.
+
+capitalize()              It will convert the first character of the string to uppercase.
+
+title()	               It will convert the first character of each word to uppercase.
+
+swapcase()             It will swap the cases, lowercase to uppercase, and uppercase to lowercase.
+
+islower()	               It will return True if all the string characters are in lower case.
+
+isupper()	               It will return True if all the string characters are in the upper case.
+
+find()	               It will search for the specified string and return the first occurrence of a substring.
+
+replace()	               It will replace the specified substring or character in all occurrences of the given string.
+
+split()	               It will split the string into a list based on the specified characters.
+
+strip()	               It will return the string by removing all the trailing and leading whitespaces from the specified string.
+
+format()	               It is useful to insert a variable or expression value into another string.
+
+index()	               It is useful to return an index of a specified character's first occurrence in the given string.
+
+isnumeric()              It is useful to identify whether the given string is numeric or not.
+
+isalpha()	                It will return True if all the characters of the given string are alphabets.
+
+isalnum()	                It will return True if all the characters of the given string are alphanumeric.
+
+MODIFYING A STRING:
+
+Upper Case:
+The upper() method returns the string in upper case:
+
+a = "Hello, World!"
+print(a.upper())
+
+output:
+HELLO, WORLD!
+
+msg1 = "Hi guest Hi"
+print(msg1.upper())
+msg2 = "welcome to program"
+print(msg2.upper())
+  
+output:
+HI GUEST HI
+WELCOME TO PROGRAM
+
+Lower Case:
+The lower() method returns the string in lower case:
+
+msg1 = "Hi GUEST Hi"
+print(msg1.lower())
+msg3 = "learn python"
+print(msg3.lower())
+
+output:
+hi guest hi
+learn python
+
+a = "Hello, World!"
+print(a.lower())
+
+output:
+hello, world!
+______________________________________________________________________________________________________
+Remove Whitespace:
+   Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+  The strip() method removes any whitespace from the beginning or the end.
+
+a = " Hello, World! "
+print(a.strip())  
+
+output:
+"Hello, World!"
+
+str1 = "  Welcome"
+str2 = "    to    "
+str3 = "    Tutlane"
+print("Before Trim:", str1, str2, str3);
+print("After Trim:", str1.strip(), str2.strip(), str3.strip());
+
+output:
+Before Trim:   Welcome     to         Tutlane
+After Trim: Welcome to Tutlane
+______________________________________________________________________________________________________
+ Replace String:
+The replace() method replaces a string with another string:
+
+a = "Hello, World!"
+print(a.replace("H", "J"))
+
+output:
+Jello, World!
+
+msg1 = "Hi Guest Hi, Learn Python"
+rmsg1 = msg1.replace("Hi","Hello")
+msg2 = "aaaacc"
+rmsg2 = msg2.replace("a","b")
+print(rmsg1)
+print(rmsg2)
+
+output:
+Hello Guest Hello, Learn Python
+bbbbcc
+
+String find() Method:
+    The string find() method is useful to search the string for specified substring and return the index position of the first occurrence of the specified substring. 
+     In case if the specified substring/character is not found, it will return -1.
+
+msg = "Hi Guest hi, welcome to program"
+rmsg1 = msg.find("hi")
+rmsg3 = msg.find("to")
+rmsg4 = msg.find("Hi")
+print("Substring 'hi':", rmsg1)
+print("Substring 'to':", rmsg3)
+print("Substring 'Hi':", rmsg4)
+
+output:
+Substring 'hi': 9
+Substring 'to': 21
+Substring 'Hi': 0
+
+String index() Method:
+    The string index() method is useful to search the string for specified substring and return the index position of the first occurrence of the specified substring. 
+    In case if the specified substring/character is not found, it will raise an exception.
+
+msg = "Hi Guest hi, welcome to picture"
+rmsg1 = msg.index("hi")
+print("Substring 'hi':", rmsg1)
+rmsg2 = msg.index("picture")
+print("Substring 'pictures':", rmsg2)
+
+output:
+Substring 'hi': 9
+Substring 'pictures': 24
+
+String Split() Method:
+      The string split() method is useful to split the string into a list that contains substrings, and those are separated by the specified separator.
+
+msg1 = "Welcome to Tutlane"
+msg2 = "Suresh, Rohini, Trishika"
+rmsg1=msg1.split()
+print(rmsg1)
+
+
+output:
+['Welcome', 'to', 'Tutlane']
+['Suresh', 'Rohini', 'Trishika']
+
+String Title Method:
+    The string title() method is useful to convert the first letter of every word in the given string to uppercase. 
+     If the first letter of the word is a number or symbol, it will convert the next letter to uppercase.
+msg1 = "hi guest hi"
+print(msg1.title())
+msg2 = "welcome to program"
+print(msg2.title())
+msg3 = "3#learn python"
+print(msg3.title())
+
+output:
+Hi Guest Hi
+Welcome To 2program
+3#Learn Python
+ ______________________________________________________________________________________________________
+String concatination:
+   The "+" operator is well-known as an addition operator, returning the sum of two numbers.
+    The "+" symbol acts as string concatenation operator in Python. It works with two string operands, and results in the concatenation of the two.
+
+The characters of the string on the right of plus symbol are appended to the string on its left. Result of concatenation is a new string.
+
+str1="hello"
+str2="python"
+print ("String 1:",str1)
+print ("String 2:",str2)
+str3=str1+str2
+print("String 3:",str3)
+
+output :
+String 1: hello
+String 2: python
+String 3: hellopython
+
+str1="Hello"
+str2="World"
+blank=" "
+print ("String 1:",str1)
+print ("String 2:",str2)
+str3=str1+blank+str2
+print("String 3:",str3)
+
+output :
+String 1: Hello
+String 2: World
+String 3: Hello World
+______________________________________________________________________________________________________
+Formatting a String:
+As we learned in the  Variables , we cannot combine strings and numbers .
+
+age = 36
+txt = "My name is John, I am " + age
+print(txt)
+
+But we can combine strings and numbers by using the format() method!
+
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are
+
+
+Use the format() method to insert numbers into strings:
+
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+
+output:
+My name is John, and I am 36
+
+The format() method takes unlimited number of arguments, and are  placed into the respective placeholders
+
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want {} pieces of item {} for {} dollars."
+print(myorder.format(quantity, itemno, price))
+
+output:
+I want 3 pieces of item 567 for 49.95 dollars.
+
+You can use index numbers {0} to be sure the arguments are placed in the correct placeholders:
+
+Example:
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))
+
+output:
+I want to pay 49.95 dollars for 3 pieces of item 567.
+______________________________________________________________________________________________________
+Escape Character:
+
+  An escape character is a backslash \ followed by the character you want to insert.
+  An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+
+txt = "We are the so-called "Vikings" from the north."
+
+To fix this problem, use the escape character \":
+
+txt = "We are the so-called \"Vikings\" from the north."
+
+Escape Characters
+Other escape characters used in Python:
+
+Code	Result	
+\'	Single Quote	
+\\	Backslash	
+\n	New Line	
+\t	Tab	
+
+txt = 'It\'s  alright.'
+print(txt) 
+
+output:
+It's  alright.
+
+txt = "This will insert one \\ (backslash)."
+print(txt) 
+
+output:
+This will insert one \ (backslash).
+
+txt = "Hello\nWorld!"
+print(txt) 
+
+output:
+Hello
+World!
+
+txt = "Hello\tWorld!"
+print(txt) 
+
+output:
+Hello	World!
+
+
+

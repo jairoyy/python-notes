@@ -1,0 +1,399 @@
+Iterators:
+    An iterator is defined as an object that enables traversing through all the values of a collection. 
+    It contains the countable number of values.
+
+    The iterator is utilized to iterate on the iterable objects such as lists, tuples, dicts, and sets.
+    It contains two methods which is __iter__(iterable) method and __next__() method.
+
+The iter() method is used for initializing the iterator object and the next() method is used for iteration.
+
+Iterable
+The iterable is refer to an object like lists, tuples, dictionaries, and sets. These all are iterable objects and creates an iterator when crossed to the iter() method. The iterable returns an iterator.
+
+Iterating Through an Iterator
+ we can use the next() function to return the next item in the sequence.
+
+example:
+nums=[7,5,8,9]
+it=iter(nums)
+print(it.__next__())					
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+
+output:
+7
+5
+8
+9
+
+nums=[7,5,8,9]
+it=iter(nums)
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+print(next(it))
+for i in nums:
+    print(i)
+
+output:
+7
+5
+8
+9
+7
+5
+8
+9
+
+nums=[7,5,8,9]
+it=iter(nums)
+print(it.__next__())
+print(it.__next__())
+print(next(it))
+for i in nums:
+    print(i)
+
+output:
+7
+5
+8
+7
+5
+8
+9
+
+my_list = [4, 7, 0]
+iterator = iter(my_list)
+print(next(iterator))  # prints 4
+print(next(iterator))  # prints 7
+print(next(iterator))  # prints 0
+
+Output:
+4
+7
+0
+
+mytuple = ("mango", "apple", "lemon")
+myit = iter(mytuple)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+Output:
+mango
+apple
+lemon
+
+Example of Iterator with a String:
+
+mystr="apple"
+myit = iter(mystr)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+Output:
+a
+p
+p
+l
+e
+
+
+Creating an Iterator:
+   As we all know that the init() function is carried by all classes. When the object is created it allows initialization of the object.
+
+   The iter() method works the same as an iterator, we can do initialization, but an iterator object is returned itself always.
+
+   Also, the next() method enables us to do initialization, and the next item must be returned. 
+
+Example:
+class Evenit:
+    def __init__(self, max=0):
+
+        self.max = max
+
+    def __iter__(self):
+
+        self.n = 0
+
+        return self
+
+    def __next__(self):
+
+        if self.n <= self.max:
+
+            if self.n % 2 ==0:
+
+                result=self.n
+
+                self.n += 1
+
+                return result
+
+            else:
+
+                self.n += 1
+
+                return 1
+
+        else:
+
+            raise StopIteration
+
+# create an object
+numbers = Evenit(10)
+for i in numbers:
+print(i)
+
+Output:
+0
+1
+2
+1
+4
+1
+6
+1
+8
+1
+10
+
+Generators:
+   A Function is said to be a Python Generator that produces or generates a sequence of results. 
+   Generator maintains its native state to work so that whenever a function is called subsequent times, it can resume again exactly where it left off.
+
+We can use the keyword known as yield to maintain the state of the function.
+ 
+syntax:
+yield [expression]
+  
+Yield Statement:
+   The generators are defined by using the yield statement in Python. Generally, it converts a normal Python function into a generator. 
+
+  The yield statement hauls the function and returns back the value to the function caller and restart from where it is left off. 
+  The yield statement can be called multiple times. 
+  While the return statement ends the execution of the function and returns the value back to the caller. 
+  The function returns nothing without it. 
+  In Python generators, the yield function is used for replacing the return function that sends back the value to the user without running local variables.
+
+Difference between yield and return:
+    The keyword yield helps in maintaining the state between the calls of the function. 
+    It resumes the function from where it left off whenever the next() method is called.
+
+On the other hand, the keyword return helps to return a value from a function and loses its native state once it returns the function. Thus, the function starts over from its first statement whenever we call that function for the next time.
+
+Hence, if we call the keyword yield in the generator, we will pick right back up after the preceding yield statement the next time we call the same generator.
+
+The Use of return in a Generator
+We can use a return statement in a generator; however, the one possible way is to use it without returning any value, as shown below:
+
+return statement
+This helps the generator proceeding as in any other function return when it finds the return statement.
+
+def num_Generator(i):
+      num = 0
+      while num < i:
+          yield num
+          num += 1
+my_Generator = num_Generator(4)
+print(next(my_Generator))
+print(next(my_Generator))
+print(next(my_Generator))
+print(next(my_Generator)) 
+
+output:
+0
+1
+2
+3
+
+def topten():
+      yield 1
+      yield 2
+      yield 3
+      yield 4
+values=topten()
+print(values.__next__())
+print(values.__next__())
+for i in values:
+      print(i)
+
+output:
+1
+2
+3
+4
+
+def topten():
+      yield 5
+values=topten()
+print(values.__next__())
+
+output:
+5
+
+def num_Generator(i):
+   if i < 25:
+      num = 0
+      while num < i:
+          yield num
+          num += 1
+   else:
+      return
+ print(list(num_Generator(35))) 
+
+Output:
+[]
+
+def myfunction(a, b):
+  add = a + b
+  yield add
+  sub = a - b
+  yield sub
+  mul = a * b
+  yield mul
+  div = a / b
+  yield div
+for value in myfunction(49,45):
+  print(value)
+
+Output:
+94
+4
+2205
+1.08
+
+Closures:
+    Functions are said to be first order objects. Just like the primary data types, functions can also be used assigned to variables, or passed as arguments.
+
+Nested Functions:
+You can also have a nested declaration of functions, wherein a function is defined inside the body of another function.
+
+Example
+def functionA():
+   print ("Outer function")
+   def functionB():
+      print ("Inner function")
+   functionB()
+functionA()
+
+output:
+Outer function
+Inner function
+
+A closure is a nested function which has access to a variable from an enclosing function that has finished its execution. Such a variable is not bound in the local scope. To use immutable variables (number or string), we have to use the nonlocal keyword.
+
+The main advantage of Python closures is that we can help avoid the using global values and provide some form of data hiding. They are used in Python decorators.
+
+Example
+def functionA(name):
+   name ="New name"
+   def functionB():
+      print (name)
+   return functionB
+myfunction = functionA("My name")
+myfunction()
+
+output:
+New name
+
+def outerFunction(text):
+    text="Hello"
+    def innerFunction():
+        print(text)
+    return innerFunction
+a=outerFunction(" Hello")
+a()
+
+output:
+Hello
+
+def nth_power(exponent):
+    def pow_of(base):
+        return pow(base,exponent)
+    return pow_of
+Square=nth_power(2)
+print(Square(2))
+print(Square(3))
+print(Square(4))
+
+cube=nth_power(3)
+print(cube(2))
+print(cube(3))
+print(cube(4))
+
+output:
+4
+9
+16
+8
+27
+64
+
+Decorators:
+  A Decorator is an interesting feature of Python that helps the user design patterns and insert a new functionality to an existing object without making any modifications in its structure. 
+Usually, we call Decorators before defining the function that we want to decorate.
+   This type programming is also known as metaprogramming because, in this programming, one part of the program is modified by another during the compilation time and vice versa.
+
+   The functions in Python are First-Class Object, which means they support various operations.
+ For example - Being returned from a function passed as an argument, modified, assigned to a variable and many more. 
+
+   Starting with the fact that everything in Python (Even the classes) are objects. The Names that we define works as identifiers that are bounded to these objects. There are no exceptions that even Functions are also objects (with attributes). We can bound different names to the same function object. 
+
+Example:
+def initial(message):
+     print(message)
+initial("Hello There!")
+final = initial
+final("Hello There!") 
+
+Output:
+Hello There!
+Hello There!
+
+As we can observe, we are getting the same result from both the functions, initial and final, respectively. And the name initial and final refers to the same function object.
+
+We can also pass one function to another as an argument. This functionality can be seen in various functions such as filter, map and reduce in Python. Such functions are also known as higher-order functions as these functions take other functions as arguments. 
+
+def increment(a):
+     return a + 2
+def decrement(a):
+     return a - 2
+def activate(function, a):
+     res = function(a)
+     return res 
+
+print(activate(increment, 4))
+print(activate(decrement, 4))
+
+output:
+6
+2
+
+def iscalled():
+     def isreturned():
+         print("Welcome to programming")
+     return isreturned
+its_new = iscalled()
+its_new()
+ 
+Output:
+Welcome to programming
+
+def div(a,b):
+    print(a/b)
+def smart_div(func):
+        def inner(a,b):
+            if a<b:
+             a,b=b,a
+             return func(a,b)
+        return inner
+div=smart_div(div)
+div(2,4)
+
+output:
+2.0

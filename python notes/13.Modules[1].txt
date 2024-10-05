@@ -1,0 +1,284 @@
+Modules:
+
+A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
+
+  The concept of module in Python further enhances the modularity. 
+  Wecan define more than one related functions together and load required functions. 
+  A module is a file containing definition of functions, classes, variables, constants or any other Python object.
+   Python has the import keyword for accessing modules. 
+   Breaking down a complex problems into small parts.
+
+Example:
+
+import math
+print ("Square root of 100:", math.sqrt(100))
+
+output:
+Square root of 100: 10.0
+
+Built in Modules
+Python's standard library comes bundled with a large number of modules. They are called built-in modules. Most of these built-in modules are written in C (as the reference implementation of Python is in C), and pre-compiled into the library. These modules pack useful functionality like system-specific OS management, disk IO, networking, etc.
+
+list of built-in modules:
+
+1.os
+ This module provides a unified interface to a number of operating system functions.
+
+2.string
+ This module contains a number of functions for string processing
+
+3.math
+ This module implements a number of mathematical operations for floating point numbers. These functions are generally thin wrappers around the platform C library functions.
+
+4.cmath
+ This module contains a number of mathematical operations for complex numbers.
+
+5.datetime
+ This module provides functions to deal with dates and the time within a day. It wraps the C runtime library.
+
+6.Collections
+  This module provides advanced Container datatypes.
+
+7.Functools
+   This module has Higher-order functions and operations on callable objects. Useful in functional programming
+
+8.operator
+  Functions corresponding to the standard operators.
+
+9.pickle
+  Convert Python objects to streams of bytes and back.
+
+10.socket
+  Low-level networking interface.
+
+11.statistics
+  Mathematical statistics functions
+______________________________________________________________________________________________________
+User Defined Modules:
+
+ Any text file with .py extension and containing Python code is basically a module.
+ It can contain definitions of one or more functions, variables, constants as well as classes. 
+ Any Python object from a module can be made available to interpreter session or another Python script by import statement.
+  A module can also include runnable code.
+
+Create a Module:
+
+Creating a module is nothing but saving a Python code with the help of any editor. Let us save the following code as mymodule.py
+
+def SayHello(name):
+   print ("Hi {}! How are you?".format(name))
+   return
+You can now import mymodule in the current Python terminal.
+
+>>> import mymodule
+>>> mymodule.SayHello("kitty")
+
+output:
+Hi kitty! How are you?
+______________________________________________________________________________________________________
+we can also import one module in another Python script. Save the following code as example.py
+
+import mymodule
+mymodule.SayHello("diya")
+
+def SayHello(name):
+   print ("Hi {}! How are you?".format(name))
+   return
+
+output:
+Hi diya! How are you?
+
+The import Statement
+In Python, the import keyword has been provided to load a Python object from one module. The object may be a function, class, a variable etc. If a module contains multiple definitions, all of them will be loaded in the namespace.
+
+Let us save the following code having three functions as mymodule.py.
+
+def sum(x,y):
+   return x+y
+
+def average(x,y):
+   return (x+y)/2
+
+def power(x,y):
+   return x**y
+
+The import mymodule statement loads all the functions in this module in the current namespace. Each function in the imported module is an attribute of this module object.
+
+import mymodule
+print ("sum:",mymodule.sum(10,20))
+print ("average:",mymodule.average(10,20))
+print ("power:",mymodule.power(10, 2))
+
+output:
+
+sum:30
+average:15.0
+power:100
+______________________________________________________________________________________________________
+The from ... import Statement
+The import statement will load all the resources of the module in the current namespace. It is possible to import specific objects from a module by using this syntax. 
+
+example:
+
+Out of three functions in mymodule, only two are imported in following executable script example.py
+
+def sum(x,y):
+   return x+y
+
+def average(x,y):
+   return (x+y)/2
+
+def power(x,y):
+   return x**y
+
+Another file:
+
+from mymodule import sum, average
+print ("sum:",mymodule.sum(10,20))
+print ("average:",mymodule.average(10,20))
+ 
+output:
+
+sum: 30
+average: 15.0
+
+from modulename as alias
+The alias should be prefixed to the function while calling.
+
+example :
+def sum(x,y):
+   return x+y
+
+def average(x,y):
+   return (x+y)/2
+
+def power(x,y):
+   return x**y
+
+Another file:
+
+import mymodule as x
+print ("sum:",x.sum(10,20))
+print ("average:", x.average(10,20))
+print ("power:", x.power(10, 2))
+
+______________________________________________________________________________________________________
+a=10
+def area_of_square(side):
+   return side**2
+def calculator(x,y):
+   print("Addition is:",x+y)
+   print("subtraction is:",x-y)
+   print("Multiplication is:",x*y)
+   print("Division is:",x/y)
+
+Another File:
+import my_module
+print(my_module.a)
+print(my_module.area_of_square(4))
+print(my_module.calculator(3,2))
+______________________________________________________________________________________________________
+a=10      #MODULES2(prg name)
+def area_of_square(side):
+   return side**2
+def calculator(x,y):
+   print("Addition is:",x+y)
+   print("subtraction is:",x-y)
+   print("Multiplication is:",x*y)
+   print("Division is:",x/y)
+
+
+import my_module as m
+print(m.a)
+print(m.area_of_square(4))
+______________________________________________________________________________________________________
+a=10
+def area_of_square(side):
+   return side**2
+def calculator(x,y):
+   print("Addition is:",x+y)
+   print("subtraction is:",x-y)
+   print("Multiplication is:",x*y)
+   print("Division is:",x/y)
+
+from my_module import calculator
+calculator(6,5)
+______________________________________________________________________________________________________
+The from...import * Statement
+
+from modulename import *
+This provides an easy way to import all the items from a module into the current namespace; however, this statement should be used sparingly.
+
+The import ... as Statement
+You can assign an alias name to the imported module.
+
+a=10
+def area_of_square(side):
+   return side**2
+def calculator(x,y):
+   print("Addition is:",x+y)
+   print("subtraction is:",x-y)
+   print("Multiplication is:",x*y)
+   print("Division is:",x/y)
+
+from my_module import*
+print(a)
+print(area_of_square(4))
+print(calculator(6,5))
+______________________________________________________________________________________________________
+a=10
+def area_of_square(side):
+   return side**2
+def calculator(x,y):
+   print("Addition is:",x+y)
+   print("subtraction is:",x-y)
+   print("Multiplication is:",x*y)
+   print("Division is:",x/y)
+
+from my_module import a
+a,b=4,5
+sum=a+b
+print("sum is:",sum)
+print(a)
+______________________________________________________________________________________________________
+Module Attributes
+In Python, a module is an object of module class, and hence it is characterized by attributes.
+
+Following are the module attributes:
+
+__file__ returns the physical name of the module.
+
+__package__ returns the package to which the module belongs.
+
+__doc__ returns the docstring at the top of the module if any
+
+__dict__ returns the entire scope of the module
+
+__name__ returns the name of the module
+
+Example
+Assuming that the following code is saved as mymodule.py
+
+"The docstring of mymodule"
+def sum(x,y):
+   return x+y
+
+def average(x,y):
+   return (x+y)/2
+   
+def power(x,y):
+   return x**y
+
+#Let us check the attributes of mymodule by importing it in the following script:
+
+import mymodule                          
+print ("__file__ attribute:", mymodule.__file__)
+print ("__doc__ attribute:", mymodule.__doc__)
+print ("__name__ attribute:", mymodule.__name__)
+
+output:
+
+__file__ attribute: C:\Users\mlath\examples\mymodule.py
+__doc__ attribute: The docstring of mymodule
+__name__ attribute: mymodule
+

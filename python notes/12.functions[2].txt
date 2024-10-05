@@ -1,0 +1,480 @@
+Functions:
+
+   Function is a block of organized, reusable code that is used to perform a single, related action. 
+Functions provide better modularity for your application and a high degree of code reusing.
+
+A top-to-down approach towards building the processing logic involves defining blocks of independent reusable functions. A Python function may be invoked from any other function by passing required data (called parameters or arguments). The called function returns its result back to the calling environment.
+
+Types of  Functions
+
+    * Built-in functions:
+    * Functions defined in built-in modules
+    * Python's standard library includes number of built-in functions. 
+    * Some of Python's built-in functions are print(), int(), len(), sum(), etc. 
+    * These functions are always available, as they are loaded into computer's memory as soon as you start       * Python interpreter.Returns immutable frozenset object
+
+Built-in Mathematical Functions:
+
+Mathematical functions are built into the Python interpreter, hence you don't need to import them from any module.
+
+1.abs() function:The abs() function returns the absolute value of x, i.e. the positive distance between x and zero.
+
+2.max() function:The max() function returns the largest of its arguments or largest number from the iterable (list or tuple).
+
+3.min() function:The function min() returns the smallest of its arguments i.e. the value closest to negative infinity, or smallest number from the iterable (list or tuple)
+
+4.pow() function:The pow() function returns x raised to y. It is equivalent to x**y. The function has third optional argument mod. If given, it returns (x**y) % mod value
+
+5.round() Function:round() is a built-in function in Python. It returns x rounded to n digits from the decimal point.
+
+6.sum() function:The sum() function returns the sum of all numeric items in any iterable (list or tuple). An optional start argument is 0 by default. If given, the numbers in the list are added to start value.
+______________________________________________________________________________________________________
+User-defined functions:
+    
+     In addition to the built-in functions and functions in the built-in modules, you can also create your own functions. These functions are called user-defined functions.
+
+Defining a Function in Python:
+
+   You can define custom functions to provide the required functionality. Here are simple rules to define a function in Python.
+
+   Function blocks begin with the keyword def followed by the function name and parentheses ( ( ) ).
+
+Any input parameters or arguments should be placed within these parentheses. You can also define parameters inside these parentheses.
+
+ The code block within every function starts with a colon (:) and is indented.
+
+
+Syntax:
+def functionname( parameters ):
+   "function_docstring"
+   function_suite
+   return [expression]
+
+def greetings():
+   "This is docstring of greetings function"
+   print ("Hello World")
+   return
+
+greetings()
+ 
+# Function definition is here
+def printme( str ):
+   "This prints a passed string into this function"
+   print (str)
+   return
+
+# Now you can call printme function
+printme("Happy!")
+printme(" second call to the same function")
+
+output :
+
+Happy!
+second call to the same function
+______________________________________________________________________________________________________
+Function Arguments:
+
+  The process of a function often depends on certain data provided to it while calling it. 
+  While defining a function, you must give a list of variables in which the data passed to it is collected. 
+  The variables in the parentheses are called formal arguments.
+
+When the function is called, value to each of the formal arguments must be provided. Those are called actual arguments.
+
+Let's modify greetings function and have name an argument. A string passed to the function as actual argument becomes name variable inside the function.
+
+def greetings(name):
+   "This is docstring of greetings function"
+   print ("Hello {}".format(name))
+   return
+   
+greetings("jenny")
+greetings("Pranitha")
+greetings("Steve")
+ 
+output:
+
+Hello jenny
+Hello Pranitha
+Hello Steve
+______________________________________________________________________________________________________
+Function with Return Value:
+
+The return keyword as the last statement in function definition indicates end of function block, and the program flow goes back to the calling function. Although reduced indent after the last statement in the block also implies return but using explicit return is a good practice.
+
+Along with the flow control, the function can also return value of an expression to the calling function. The value of returned expression can be stored in a variable for further processing.
+
+
+def add(x,y):
+   z=x+y
+   return z
+
+a=10
+b=20
+result = add(a,b)
+print ("a = {} b = {} a+b = {}".format(a, b, result))
+ 
+output:
+
+a = 10 b = 20 a+b = 30
+
+Types of Function Arguments:
+
+   Default arguments
+
+   Keyword arguments
+ 
+   Positional or required arguments
+
+   Positional-only arguments
+
+   Keyword-only arguments
+
+   Arbitrary or variable-length arguments
+
+Default arguments:
+
+  Python allows to define a function with default value assigned to one or more formal arguments.
+  Python uses the default value for such an argument if no value is passed to it. 
+  If any value is passed, the default value is overridden with the actual value passed.
+
+# Function definition is here
+def printinfo( name, age = 35 ):
+   "This prints a passed info into this function"
+   print ("Name: ", name)
+   print ("Age ", age)
+   return
+
+# Now you can call printinfo function
+printinfo( age=50, name="thanvir" )
+printinfo( name="pavithra" )
+
+output:
+
+Name: thanvir
+Age 50
+Name: pavithra
+Age 35
+______________________________________________________________________________________________________
+Keyword arguments:
+
+ Python allows to pass function arguments in the form of keywords which are also called named arguments. 
+ Variables in the function definition are used as keywords.
+   When the function is called, you can explicitly mention the name and its value.
+
+Example
+# Function definition is here
+def printinfo( name, age ):
+   "This prints a passed info into this function"
+   print ("Name: ", name)
+   print ("Age ", age)
+   return
+
+# Now you can call printinfo function
+# by positional arguments
+printinfo ("sneha", 29)
+
+# by keyword arguments
+printinfo(name="manoj", age = 30)
+
+output :
+
+Name: sneha
+Age 29
+Name: manoj
+Age 30
+
+def division(num, den):
+   quotient = num/den
+   print ("num:{} den:{} quotient:{}".format(num, den, quotient))
+
+division(10,5)
+division(5,10)
+
+Since the values are assigned as per the position, the output:
+
+num:10 den:5 quotient:2.0
+num:5 den:10 quotient:0.5
+
+Instead of passing the values with positional arguments, let us call th‫e function with keyword arguments −
+
+division(num=10, den=5)
+division(den=5, num=10)
+
+output:
+
+num:10 den:5 quotient:2.0
+num:10 den:5 quotient:2.0
+
+When using keyword arguments, it is not necessary to follow the order of formal arguments in function definition.
+
+Using keyword arguments is optional. You can use mixed calling. You can pass values to some arguments without keywords, and for others with keyword.
+
+division(10, den=5)
+However, the positional arguments must be before the keyword arguments while using mixed calling.
+______________________________________________________________________________________________________
+
+Positional Arguments:
+    The list of variables declared in the parentheses at the time of defining a function are the formal arguments.        
+    A function may be defined with any number of formal arguments.
+
+While calling a function :
+
+  All the arguments are required
+
+  The number of actual arguments must be equal to the number of formal arguments.
+
+  Formal arguments are positional. They Pick up values in the order of definition.
+
+  The type of arguments must match.
+
+  Names of formal and actual arguments need not be same.
+
+Example
+def add(x,y):
+   z=x+y
+   print ("x={} y={} x+y={}".format(x,y,z))
+a=10
+b=20
+add(a,b)
+
+output:
+x=10 y=20 x+y=30
+
+______________________________________________________________________________________________________
+
+Arbitrary arguments:
+
+   You may want to define a function that is able to accept arbitrary or variable number of arguments.
+   The arbitrary number of arguments might be positional or keyword arguments.
+
+   An argument prefixed with a single asterisk * for arbitrary positional arguments.
+
+   An argument prefixed with two asterisks ** for arbitrary keyword arguments.
+
+Example:
+# sum of numbers
+def add(*args):
+   s=0
+   for x in args:
+      s=s+x
+   return s
+result = add(10,20,30,40)
+print (result)
+result = add(1,2,3)
+print (result)
+
+The args variable prefixed with "*" stores all the values passed to it. Here, args becomes a tuple. We can run a loop over its items to add the numbers.
+
+ output:
+
+100
+6
+
+It is also possible to have a function with some required arguments before the sequence of variable number of values.
+
+Example:
+The following example has avg() function. Assume that a student can take any number of tests. First test is mandatory. He can take as many tests as he likes to better his score. The function calculates the average of marks in first test and his maximum score in the rest of tests.
+
+The function has two arguments, first is the required argument and second to hold any number of values.
+
+#avg of first test and best of following tests
+def avg(first, *rest):
+   second=max(rest)
+   return (first+second)/2
+   
+result=avg(40,30,50,25)
+print (result)
+Following call to avg() function passes first value to the required argument first, and the remaining values to a tuple named rest. We then find the maximum and use it to calculate the average.
+
+output:
+
+45.0
+
+If a variable in the argument list has two asterisks prefixed to it, the function can accept arbitrary number of keyword arguments. The variable becomes a dictionary of keyword:value pairs.
+
+Example
+  The following code is an example of a function with arbitrary keyword arguments. 
+     The addr() function has an  argument **kwargs which is able to accept any number of address elements like      name,city, phno, pin, etc.
+     Inside the function kwargs dictionary of kw:value pairs is traversed using items() method.
+
+def addr(**kwargs):
+   for k,v in kwargs.items():
+      print ("{}:{}".format(k,v))
+
+print ("pass two keyword args")
+addr(Name="John", City="Mumbai")
+print ("pass four keyword args")
+
+# pass four keyword args
+addr(Name="Raam", City="Mumbai", ph_no="9123134567", PIN="400001")
+
+ output:
+
+pass two keyword args
+Name:John
+City:Mumbai
+pass four keyword args
+Name:Raam
+City:Mumbai
+ph_no:9123134567
+PIN:400001
+
+If the function uses mixed types of arguments, the arbitrary keyword arguments should be after positional, keyword and arbitrary positional arguments in the argument list.
+
+Example
+Imagine a case where science and maths are mandatory subjects, in addition to which student may choose any number of elective subjects.
+
+If a variable in the argument list has two asterisks prefixed to it, the function can accept arbitrary number of keyword arguments. The variable becomes a dictionary of keyword:value pairs.
+
+Example
+The following code is an example of a function with arbitrary keyword arguments. The addr() function has an argument **kwargs which is able to accept any number of address elements like name, city, phno, pin, etc. Inside the function kwargs dictionary of kw:value pairs is traversed using items() method.
+
+def addr(**kwargs):
+   for k,v in kwargs.items():
+      print ("{}:{}".format(k,v))
+
+print ("pass two keyword args")
+addr(Name="John", City="Mumbai")
+print ("pass four keyword args")
+
+# pass four keyword args
+addr(Name="Raam", City="Mumbai", ph_no="9123134567", PIN="400001")
+
+ output :
+
+pass two keyword args
+Name:John
+City:Mumbai
+pass four keyword args
+Name:Raam
+City:Mumbai
+ph_no:9123134567
+PIN:400001
+If the function uses mixe
+
+______________________________________________________________________________________________________
+
+Lambda Functions:
+
+ A lambda function is a special type of function without the function name.
+
+Syntax:
+lambda argument(s) : expression
+
+  argument(s) - any value passed to the lambda function
+  expression - expression is executed and returned
+
+
+Here, we have defined a lambda function and assigned it to the variable named greet.
+
+greet = lambda : print('Hello World')
+# call the lambda
+greet()
+The lambda function above simply prints the text 'Hello World'.
+
+Output: 
+Hello World
+
+lambda Function with an Argument:
+
+Similar to normal functions, the lambda function can also accept arguments. 
+
+# lambda that accepts one argument
+greet_user = lambda name : print('Hey there,', name)
+greet_user('kavi')
+
+Output:
+ Hey there,kavi
+
+square=lambda a:a*a
+result=square(5)
+print(result)
+
+output:
+25
+______________________________________________________________________________________________________
+Filter:
+
+Sometimes, you need to iterate over elements of a list and select some of them based on specified criteria.
+
+Suppose that you have the following list of scores:
+
+scores = [70, 60, 80, 90, 50]
+filtered = []
+for score in scores:
+    if score >= 70:
+        filtered.append(score)
+print(filtered)
+
+The filter() function iterates over the elements of the list and applies the fn() function to each element. It returns an iterator for the elements where the fn() returns True.
+
+we can pass any iterable to the second argument of the filter() function, not just a list.
+
+Syntax:
+filter(fn, list)
+
+scores = [70, 60, 80, 90, 50]
+filtered = filter(lambda score: score >= 70, scores)
+print(list(filtered))
+
+Output:
+[70, 80, 90]
+
+nums=[3,2,6,8,4,6,2,9]
+evens=list(filter(lambda n:n%2==0,nums))
+print(evens)
+
+output:
+[2, 6, 8, 4, 6, 2]
+
+______________________________________________________________________________________________________
+
+Map:
+
+  The map() function in Python is a built-in function, where we can pass a function and any iterable (such as list, tuple, set, etc.), and it applies the given function to that iterable. 
+  After applying the function to all the elements, map returns a map object.
+
+Syntax :
+map(function, iterable[, iterable1, iterable2,..., iterableN])
+
+bonuses = [10, 20, 30]
+iterator = map(lambda bonus: bonus*2, bonuses)
+print(list(iterator))
+
+output:
+[20, 40, 60]
+
+nums=[3,2,6,8,4,6,2,9]
+evens=list(filter(lambda n:n%2==0,nums))
+Double=list(map(lambda n:n+2,evens))
+print(Double)
+
+output:
+[4, 8, 10, 6, 8, 4]
+______________________________________________________________________________________________________
+
+Reduce:
+
+   The reduce() function in python takes a pre-defined function and applies it to all the elements in an iterable (e.g., list, tuple, dictionary, etc.) and computes a single-valued result. 
+  
+   This single-valued output results from applying the reduce function on the iterable passed as an argument; only a single integer, string, or boolean is returned.
+  
+   The reduce() function in python is defined in the functools module and doesn't return multiple values or any iterator, it just returns a single value as output .
+
+from functools import reduce
+nums = [1, 2, 3, 4]
+ans = reduce(lambda x, y: x + y, nums)
+print(ans) 
+
+output:
+10
+
+from functools import reduce
+nums=[2,3,4,6,5]
+evens=list(filter(lambda n:n%2==0,nums))
+Double=list(map(lambda n:n+2,evens))  #4,6,8
+sum=reduce(lambda a,b:a*b,Double)
+print(sum)
+
+output:
+192

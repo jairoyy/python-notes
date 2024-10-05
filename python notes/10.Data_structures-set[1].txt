@@ -1,0 +1,389 @@
+Set:
+   A set is one of the built-in data types in Python. In mathematics, set is a collection of distinct objects. 
+   Set data type is Python's implementation of a set.
+   Objects in a set can be of any data type.
+
+  Set in Python also a collection data type such as list or tuple. 
+  However, it is not an ordered collection, i.e., items in a set or not accessible by its positional index. 
+  A set object is a collection of one or more immutable objects enclosed within curly brackets {}.
+
+Set methods:
+
+Method	                  Description
+add()	          It is useful to add elements to the set.
+pop()	          It is useful to remove the element from the set.
+remove()	          It is useful to remove the element with the specified value.
+discard()	          It will remove the specified item from the set.
+clear()	          It is useful to remove all the elements from the set.
+copy()	          It is useful to return a copy of the set.
+intersection()      It will return a set by intersecting the defined sets.
+union()	          It will return a set by combining all the items of defined sets.
+update()	          It will return a set by merging all the items of defined sets.
+
+Example :
+s1 = {"madhu", "Physics", 21, 69.75}
+s2 = {1, 2, 3, 4, 5}
+s3 = {"a", "b", "c", "d"}
+s4 = {25.50, True, -55, 1+2j}
+print (s1)
+print (s2)
+print (s3)
+print (s4)
+
+output:
+{'Physics', 21, 'madhu', 69.75}
+{1, 2, 3, 4, 5}
+{'a', 'd', 'c', 'b'}
+{25.5, -55, True, (1+2j)}
+
+In addition to the literal representation of set (keeping the items inside curly brackets), Python's built-in set() function also constructs set object.
+
+set() Function
+set() is one of the built-in functions. It takes any sequence object (list, tuple or string) as argument and returns a set object
+
+Syntax:
+Obj = set(sequence)
+Parameters
+sequence − An object of list, tuple or str type
+
+Return value
+The set() function returns a set object from the sequence, discarding the repeated elements in it.
+
+Example 2
+L1=["swetha","physics",21,69.75]
+s1=set(L1)
+T1=(1,2,3,4,5)
+s2=set(T1)
+string = "TutorialsPoint"
+s3 = set(string)
+
+print (s1)
+print (s2)
+print (s3)
+
+output:
+{'swetha', 69.75, 21, 'Physics'}
+{1, 2, 3, 4, 5}
+{'u', 'a', 'o', 'n', 'r', 's', 'T', 'P', 'i', 't', 'l'}
+
+Example:
+Set is a collection of distinct objects. Even if you repeat an object in the collection, only one copy is retained in it.
+
+s2 = {1, 2, 3, 4, 5, 3,0, 1, 9}
+s3 = {"a", "b", "c", "d", "b", "e", "a"}
+print (s2)
+print (s3)
+     
+output:
+{0, 1, 2, 3, 4, 5, 9}
+{'a', 'b', 'd', 'c', 'e'}
+_______________________________________________________________________________________________
+Accessing set elements:
+
+  Since set is not a sequence data type, its items cannot be accessed individually as they do not have a positional index (as in list or tuple). 
+     Set items do not have a key either (as in dictionary) to access. You can only traverse the set items using a for loop.
+
+Example 1
+langs = {"C", "C++", "Java", "Python"}
+for lang in langs:
+   print (lang)
+
+ output :
+Python
+C
+C++
+Java
+
+Example:
+Python's membership operators let you check if a certain item is available in the set. 
+langs = {"C", "C++", "Java", "Python"}
+print ("PHP" in langs)
+print ("Java" in langs)
+ 
+output :
+False
+True
+_______________________________________________________________________________________________
+Add elements to the set:
+  
+    Even if a set holds together only immutable objects, set itself is mutable. We can add new items in it .
+add() Method
+    The add() method in set class adds a new element. If the element is already present in the set, there is no change in the set.
+
+Syntax:
+set.add(obj)
+obj − an object of any immutable type.
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+lang1.add("Golang")
+print (lang1)
+
+output :
+{'Python', 'C', 'Golang', 'C++', 'Java'}
+
+update() Method:
+The update() method of set class includes the items of the set given as argument. If elements in the other set has one or more items that are already existing, they will not be included.
+
+Syntax
+set.update(obj)
+obj − a set or a sequence object (list, tuple, string)
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+lang2 = {"PHP", "C#", "Perl"}
+lang1.update(lang2)
+print(lang1)
+ 
+output :
+{'Python', 'Java', 'C', 'C#', 'PHP', 'Perl', 'C++'}
+
+Example:
+The update() method also accepts any sequence object as argument. Here, a tuple is the argument for update() method.
+
+lang1 = {"C", "C++", "Java", "Python"}
+lang2 = ("PHP", "C#", "Perl")
+lang1.update(lang2)
+print (lang1)
+
+output:
+{'Java', 'Perl', 'Python', 'C++', 'C#', 'C', 'PHP'}
+
+union() Method:
+The union() method of set class also combines the unique items from two sets, but it returns a new set object.
+
+Syntax
+set.union(obj)
+obj − a set or a sequence object (list, tuple, string)
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+lang2 = {"PHP", "C#", "Perl"}
+lang3 = lang1.union(lang2)
+print (lang3)
+
+output :
+{'C#', 'Java', 'Perl', 'C++', 'PHP', 'Python', 'C'}
+
+Example:
+If a sequence object is given as argument to union() method, Python automatically converts it to a set first and then performs union.
+
+lang1 = {"C", "C++", "Java", "Python"}
+lang2 = ["PHP", "C#", "Perl"]
+lang3 = lang1.union(lang2)
+print (lang3)
+
+output:
+{'PHP', 'C#', 'Python', 'C', 'Java', 'C++', 'Perl'}
+
+Example:
+In this example, a set is constructed from a string, and another string is used as argument for union() method.
+
+set1 = set("Hello")
+set2 = set1.union("World")
+print (set2)
+ 
+output:
+{'e', 'H', 'r', 'd', 'W', 'o', 'l'}
+_______________________________________________________________________________________________Remove set elements:
+remove() Method
+The remove() method removes the given item from the set collection, if it is present in it.
+
+Syntax:
+set.remove(obj)
+obj − an immutable object
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+print ("Set before removing: ", lang1)
+lang1.remove("Java")
+print ("Set after removing: ", lang1)
+
+ output :
+Set before removing: {'C', 'C++', 'Python', 'Java'}
+Set after removing: {'C', 'C++', 'Python'}
+   
+discard() Method
+The discard() method in set class is similar to remove() method. The only difference is, it doesn't raise error even if the object to be removed is not already present in the set collection.
+
+Syntax:
+set.discard(obj)
+obj − An immutable object
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+print ("Set before discarding C++: ", lang1)
+lang1.discard("C++")
+print ("Set after discarding C++: ", lang1)
+
+output :
+Set before discarding C++: {'Java', 'C++', 'Python', 'C'}
+Set after discarding C++: {'Java', 'Python', 'C'}
+
+pop() Method:
+The pop() method in set class removes an arbitrary item from the set collection. The removed item is returned by the method. Popping from an empty set results in KeyError.
+
+Syntax:
+obj = set.pop()
+Return value
+The pop() method returns the object removed from set.
+
+Example
+lang1 = {"C", "C++"}
+print ("Set before popping: ", lang1)
+obj = lang1.pop()
+print ("Set after popping: ", lang1)
+obj = lang1.pop()
+
+ output :
+Set before popping: {'C++', 'C'}
+Set after popping: {'C'}
+
+
+clear() Method:
+The clear() method in set class removes all the items in a set object, leaving an empty set.
+
+Syntax:
+set.clear()
+
+Example:
+lang1 = {"C", "C++", "Java", "Python"}
+print (lang1)
+print ("After clear() method")
+lang1.clear()
+print (lang1)
+
+output :
+{'Java', 'C++', 'Python', 'C'}
+After clear() method
+set()
+
+difference_update() Method:
+  The difference_update() method in set class updates the set by removing items that are common between itself and another set given as argument.
+
+Syntax:
+set.difference_update(obj)
+Parameters
+obj − a set object
+
+Example:
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+print ("s1 before running difference_update: ", s1)
+s1.difference_update(s2)
+print ("s1 after running difference_update: ", s1)
+
+ output :
+s1 before running difference_update: {1, 2, 3, 4, 5}
+s1 after running difference_update: {1, 2, 3}
+set()
+
+difference() Method:
+The difference() method is similar to difference_update() method, except that it returns a new set object that contains the difference of the two existing sets.
+
+Syntax:
+set.difference(obj)
+obj − a set object
+
+Return value
+The difference() method returns a new set with items remaining after removing those in obj.
+
+Example
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+print ("s1: ", s1, "s2: ", s2)
+s3 = s1.difference(s2)
+print ("s3 = s1-s2: ", s3)
+
+output :
+s1: {1, 2, 3, 4, 5} s2: {4, 5, 6, 7, 8}
+s3 = s1-s2: {1, 2, 3}
+
+intersection() Method:
+  The intersection() method in set it returns a new set object that consists of items common to existing sets.
+
+Syntax:
+set.intersection(obj)
+obj − a set object
+
+Example:
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+print ("s1: ", s1, "s2: ", s2)
+s3 = s1.intersection(s2)
+print ("s3 = s1 & s2: ", s3)
+
+ output:
+s1: {1, 2, 3, 4, 5} s2: {4, 5, 6, 7, 8}
+s3 = s1 & s2: {4, 5}
+_______________________________________________________________________________________________
+Set using loop:
+
+   A set in Python is not a sequence, nor is it a mapping type class.
+       Hence, the objects in a set cannot be traversed with index or key.
+       However, you can traverse each item in a set using a for loop.
+
+Example :
+langs = {"C", "C++", "Java", "Python"}
+for lang in langs:
+   print (lang)
+
+ output :
+C
+Python
+C++
+Java
+
+Example :
+  use the add() method of set class to add in another set.
+
+s1={1,2,3,4,5}
+s2={4,5,6,7,8}
+for x in s2:
+   s1.add(x)
+print (s1)
+
+ output :
+{1, 2, 3, 4, 5, 6, 7, 8}
+_______________________________________________________________________________________________
+Join set:
+  A Set is an ordered collection of items. 
+  The items may be of different types. 
+  However, an item in the set must be an immutable object. 
+  It means, we can only include numbers, string and tuples in a set and not lists.
+
+
+Using the "|" Operator
+The "|" symbol (pipe) is defined as the union operator. It performs the A∪B operation and returns a set of items in A, B or both. Set doesn't allow duplicate items.
+
+s1={1,2,3,4,5}
+s2={4,5,6,7,8}
+s3 = s1|s2
+print (s3)
+
+ output :
+{1, 2, 3, 4, 5, 6, 7, 8}
+
+Using the union() Method:
+  The set class has union() method that performs the same operation as | operator. 
+  It returns a set object that holds all items in both sets, discarding duplicates.
+
+s1={1,2,3,4,5}
+s2={4,5,6,7,8}
+s3 = s1.union(s2)
+print (s3)
+
+ output :
+{1, 2, 3, 4, 5, 6, 7, 8}
+
+Using the update() Method:
+   The update() method also joins the two sets, as the union() method. 
+   However it doen't return a new set object. Instead, the elements of second set are added in first, duplicates not allowed.
+
+s1={1,2,3,4,5}
+s2={4,5,6,7,8}
+s1.update(s2)
+print (s1)
+
+ output :
+{1, 2, 3, 4, 5, 6, 7, 8}

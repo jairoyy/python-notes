@@ -1,0 +1,369 @@
+List:
+   List is one of the built-in data types in Python. A Python list is a sequence of comma separated items, enclosed in square brackets [ ]. The items in a Python list need not be of the same data type.
+
+List methods:
+Method	                Description
+append()	          It is useful to add elements at the end of the list.
+insert()	          It is useful to add elements at the specified position.
+extend()	          It is useful to add elements of one list to the end of another list.
+pop()	          It is useful to remove the element at the specified position.
+remove()	          It is useful to remove the element with the specified value.
+clear()	          It is useful to remove all the elements of a list.
+copy()	          It is useful to return a copy of the list.
+
+Examples :
+list1 = ["Rohan", "Physics", 21, 69.75]
+list2 = [1, 2, 3, 4, 5]
+list3 = ["a", "b", "c", "d"]
+list4 = [25.50, True, -55, 1+2j]
+
+A list is a sequence data type. It is an ordered collection of items. Each item in a list has a unique position index, starting from 0.
+
+A list in Python is similar to an array in C, C++ or Java. However, the major difference is that in C/C++/Java, the array elements must be of same type. On the other hand, Python lists may have objects of different data types.
+
+Python List Operations:
+In Python, List is a sequence. Hence, we can concatenate two lists with "+" operator and concatenate multiple copies of a list with "*" operator. The membership operators "in" and "not in" work with list object.
+
+ Expression	         Results	                Description
+[1, 2, 3] + [4, 5, 6]	[1, 2, 3, 4, 5, 6]	        Concatenation
+['Hi!'] * 4	        ['Hi!', 'Hi!', 'Hi!', 'Hi!']	Repetition
+
+Accessing the List:
+
+  A list is a sequence. 
+  Each object in the list is accessible with its index.
+  The index starts from 0. Index or the last item in the list is "length-1".
+  To access the values in a list, use the square brackets for slicing along with the index or indices to obtain value available at that index.
+
+The slice operator fetches one or more items from the list. Put index on square brackets to retrieve item at its position.
+
+list1 = ["Rohan", "Physics", 21, 69.75]
+list2 = [1, 2, 3, 4, 5]
+print (list1[0])
+print (list2[2])
+
+output :
+Rohan
+3
+
+Python allows negative index to be used with any sequence type. The "-1" index refers to the last item in the list.
+
+Example :
+list1 = ["a", "b", "c", "d"]
+list2 = [25.50, True, -55, 1+2j]
+print ( list1[-1])
+print ( list2[-3])
+
+output :
+d
+True
+
+While slicing, both operands "i" and "j" are optional. If not used, "i" is 0 and "j" is the last item in the list. Negative index can be used in slicing.
+
+Example:
+list1 = ["a", "b", "c", "d"]
+list2 = [25.50, True, -55, 1+2j]
+print (  list1[1:3])
+print (list2[0:2])
+
+output :
+['b', 'c']
+[25.5, True]
+
+list1 = ["a", "b", "c", "d"]
+list2 = [25.50, True, -55, 1+2j]
+print (  list1[1:])
+print (list2[2:])
+
+Output:
+['b','c','d']
+[-55,1+2j]
+
+list1 = ["a", "b", "c", "d"]
+list2 = [25.50, True, -55, 1+2j]
+print (  list1[:2])
+print (list2[:1])
+_______________________________________________________________________________________________
+Changing the elements of list:
+
+  List is a mutable data type in Python.
+  It means, the contents of list can be modified in place, after the object is stored in the memory.
+  We can assign a new value at a given index position in the list
+
+list3 = [1, 2, 3, 4, 5]
+print ("Original list ", list3)
+list3[2] = 10
+print ("List after changing value at index 2: ", list3)
+
+output :
+Original list [1, 2, 3, 4, 5]
+List after changing value at index 2: [1, 2, 10, 4, 5]
+
+You can replace more consecutive items in a list with another sublist.
+
+Example :
+In the following code, items at index 1 and 2 are replaced by items in another sublist.
+
+list1 = ["a", "b", "c", "d"]
+print ("Original list: ", list1)
+list2 = ['Y', 'Z']
+list1[1:3] = list2
+print ("List after changing with sublist: ", list1)
+ 
+output :
+Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'Y', 'Z', 'd']
+
+Example:
+   If the source sublist has more items than the slice to be replaced, the extra items in the source will be inserted. 
+
+list1 = ["a", "b", "c", "d"]
+print ("Original list: ", list1)
+list2 = ['X','Y', 'Z']
+list1[1:3] = list2
+print ("List after changing with sublist: ", list1)
+
+output :
+Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'X', 'Y', 'Z', 'd']
+
+Example :
+If the sublist with which a slice of original list is to be replaced, has lesser items, the items with match will be replaced and rest of the items in original list will be removed.
+
+In the following code, we try to replace "b" and "c" with "Z" (one less item than items to be replaced). It results in Z replacing b and c removed.
+
+list1 = ["a", "b", "c", "d"]
+print ("Original list: ", list1)
+list2 = ['Z']
+list1[1:3] = list2
+print ("List after changing with sublist: ", list1)
+
+output :
+Original list: ['a', 'b', 'c', 'd']
+List after changing with sublist: ['a', 'Z', 'd']
+_______________________________________________________________________________________________
+Adding elements to the list:
+
+There are two methods of the list class, append() and insert(), that are used to add items to an existing list.
+
+Example :
+The append() method adds the item at the end of an existing list.
+
+list1 = ["a", "b", "c", "d"]
+print ("Original list: ", list1)
+list1.append('e')
+print ("List after appending: ", list1)
+
+Output:
+Original list: ['a', 'b', 'c', 'd']
+List after appending: ['a', 'b', 'c', 'd', 'e']
+
+Example:
+The insert() method inserts the item at a specified index in the list.
+
+list1 = ["Rohan", "Physics", 21, 69.75]
+print ("Original list ", list1)
+list1.insert(2, 'Chemistry')
+print ("List after appending: ", list1)
+list1.insert(-1, 'Pass')
+print ("List after appending: ", list1)
+
+Output:
+Original list ['Rohan', 'Physics', 21, 69.75]
+List after appending: ['Rohan', 'Physics', 'Chemistry', 21, 69.75]
+List after appending: ['Rohan', 'Physics', 'Chemistry', 21, 'Pass', 69.75]
+_______________________________________________________________________________________________
+Remove list Elements:
+
+The list class methods remove() and pop() both can remove an item from a list. 
+ The difference between them is that remove() removes the object given as argument, while pop() removes an item at the given index.
+
+Using the remove() Method:
+list1 = ["Rohan", "Physics", 21, 69.75]
+print ("Original list: ", list1)
+list1.remove("Physics")
+print ("List after removing: ", list1)
+ 
+output :
+Original list: ['Rohan', 'Physics', 21, 69.75]
+List after removing: ['Rohan', 21, 69.75]
+
+Using the pop() Method:
+
+list2 = [25.50, True, -55, 1+2j]
+print ("Original list: ", list2)
+list2.pop(2)
+print ("List after popping: ", list2)
+ 
+output :
+Original list: [25.5, True, -55, (1+2j)]
+List after popping: [25.5, True, (1+2j)]
+
+Using the "del" Keyword:
+
+Python has the "del" keyword that deletes any Python object from the memory.
+
+Example
+We can use "del" to delete an item from a list. 
+
+list1 = ["a", "b", "c", "d"]
+print ("Original list: ", list1)
+del list1[2]
+print ("List after deleting: ", list1)
+
+output:
+Original list: ['a', 'b', 'c', 'd']
+List after deleting: ['a', 'b', 'd']
+
+Example:
+You can delete a series of consecutive items from a list with the slicing operator. 
+
+list2 = [25.50, True, -55, 1+2j]
+print ("List before deleting: ", list2)
+del list2[0:2]
+print ("List after deleting: ", list2)
+
+output :
+List before deleting: [25.5, True, -55, (1+2j)]
+List after deleting: [-55, (1+2j)]
+_______________________________________________________________________________________________
+list using loop:
+
+  You can traverse the items in a list with Python's for loop construct.
+     The traversal can be done, using list as an iterator or with the help of index.
+
+Syntax:
+for obj in list:
+   -------
+   -------
+Example :
+lst = [25, 12, 10, -21, 10, 100]
+for num in lst:
+   print (num, end = ' ')
+
+Output:
+25 12 10 -21 10 100
+
+lst = [25, 12, 10, -21, 10, 100]
+indices = range(len(lst))
+for i in indices:
+   print ("lst[{}]: ".format(i), lst[i])
+
+Output
+lst[0]: 25
+lst[1]: 12
+lst[2]: 10
+lst[3]: -21
+lst[4]: 10
+lst[5]: 100
+
+Sort list:
+
+  The sort() method of list class rearranges the items in ascending or descending order with the use of lexicographical ordering mechanism. 
+     The sorting is in-place, in the sense the rearrangement takes place in the same list object, and that it doesn't return a new object.
+
+Syntax
+list1.sort(key, reverse)
+Parameters
+  Key − The function applied to each item in the list. The return value is used to perform sort. Optional
+
+  reverse − Boolean value. If set to True, the sort takes place in descending order. Optional
+
+Return value
+This method returns None.
+
+Example :
+list1 = ['physics', 'Biology', 'chemistry', 'maths']
+print ("list before sort", list1)
+list1.sort()
+print ("list after sort : ", list1)
+
+print ("Descending sort")
+list2 = [10,16, 9, 24, 5]
+print ("list before sort", list2)
+list2.sort()
+print ("list after sort : ", list2)
+
+ output:
+
+list before sort ['physics', 'Biology', 'chemistry', 'maths']
+list after sort: ['Biology', 'chemistry', 'maths', 'physics']
+Descending sort
+list before sort [10, 16, 9, 24, 5]
+list after sort : [5, 9, 10, 16, 24]
+_______________________________________________________________________________________________
+Copy list:
+
+ A variable is just a label or reference to the object in the memory.
+  Hence, the assignment "lst1 = lst" refers to the same list object in the memory.
+ 
+lst = [10, 20]
+print ("lst:", lst, "id(lst):",id(lst))
+lst1 = lst
+print ("lst1:", lst1, "id(lst1):",id(lst1))
+
+ output :
+lst: [10, 20] id(lst): 1677677188288
+lst1: [10, 20] id(lst1): 1677677188288
+As a result, if we update "lst", it will automatically reflect in "lst1". Change lst[0] to 100
+
+Using the Copy Method of List Class:
+
+Python's list class has a copy() method to create a new physical copy of a list object.
+
+Syntax:
+lst1 = lst.copy()
+The new list object will have a different id() value. The following example demonstrates this −
+
+lst = [10, 20]
+lst1 = lst.copy()
+print (lst)
+print (lst1)
+
+ output :
+ [10, 20]
+ [10, 20] 
+_______________________________________________________________________________________________
+Join list:
+
+ List is classified as a sequence type object.
+ It is a collection of items, which may be of different data types, with each item having a positional index starting with 0. You can use different ways to join two Python lists.
+
+All the sequence type objects support concatenation operator, with which two lists can be joined.
+
+L1 = [10,20,30,40]
+L2 = ['one', 'two', 'three', 'four']
+L3 = L1+L2
+print ("Joined list:", L3)
+
+ output :
+
+Joined list: [10, 20, 30, 40, 'one', 'two', 'three', 'four']
+You can also use the augmented concatenation operator with "+=" symbol to append L2 to L1
+
+L1 = [10,20,30,40]
+L2 = ['one', 'two', 'three', 'four']
+L1+=L2
+print ("Joined list:", L1)
+The same result can be obtained by using the extend() method. Here, we need to extend L1 so as to add elements from L2 in it.
+
+L1 = [10,20,30,40]
+L2 = ['one', 'two', 'three', 'four']
+L1.extend(L2)
+print ("Joined list:", L1)
+To add items from one list to another, a classical iterative solution also works. Traverse items of second list with a for loop, and append each item in the first.
+
+L1 = [10,20,30,40]
+L2 = ['one', 'two', 'three', 'four']
+
+for x in L2:
+   L1.append(x)
+   
+print ("Joined list:", L1)
+A slightly complex approach for merging two lists is using list comprehension, as following code shows −
+
+L1 = [10,20,30,40]
+L2 = ['one', 'two', 'three', 'four']
+L3 = [y for x in [L1, L2] for y in x]
+print ("Joined list:", L3)
+

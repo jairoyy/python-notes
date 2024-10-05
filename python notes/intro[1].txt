@@ -1,0 +1,139 @@
+INTRODUCTION:
+
+     Python is developed by Guido van Rossum. 
+     Guido van Rossum started implementing Python in 1989. released in 1991.
+     Python is a very simple programming language so even if you are new to programming, you can learn python without facing any issues.
+
+Interesting fact: Python is named after the comedy television show Monty Python’s Flying Circus. 
+
+
+Features of Python
+
+1. Readable: Python is a very readable language.
+
+2. Easy to Learn: Learning python is easy as this is a expressive and high level programming language, 
+which means it is easy to understand the language and thus easy to learn.
+
+3. Cross platform: Python is available and can run on various operating systems such as Mac, Windows, Linux, Unix etc. 
+  This makes it a cross platform and portable language.
+
+4. Open Source: Python is a open source programming language.
+
+5. Large standard library: Python comes with a large standard library that has some handy codes and functions which we can use while writing code in Python.
+
+6. Free: Python is free to download and use. 
+This means you can download it for free and use it in your application. See: Open Source Python License.
+ Python is an example of a FLOSS (Free/Libre Open Source Software), which means you can freely distribute copies of this software, read its source code and modify it.
+
+7. Supports exception handling: If you are new, you may wonder what is an exception? 
+An exception is an event that can occur during program exception and can disrupt the normal flow of program. 
+Python supports exception handling which means we can write less error prone code and can test various scenarios that can cause an exception later on.
+
+8. Advanced features: Supports generators and list comprehensions. We will cover these features later.
+
+9. Automatic memory management: Python supports automatic memory management which means the memory is cleared
+ and freed automatically. You do not have to bother clearing the memory.
+
+USES:
+
+1. Web development – Web framework like Django and Flask are based on Python. 
+They help you write server side code which helps you manage database, write backend programming logic, mapping urls etc.
+
+2. Machine learning – There are many machine learning applications written in Python. 
+        Machine learning is a way to write a logic so that a machine can learn and solve a particular problem on its own.
+       For example, products recommendation in websites like Amazon, Flipkart,  etc. is a machine learning algorithm that recognises user’s interest. 
+      Face recognition and Voice recognition in your phone is another example of machine learning.
+
+3. Data Analysis – Data analysis and data visualisation in form of charts can also be developed using Python.
+
+4. Scripting – Scripting is writing small programs to automate simple tasks such as sending automated response emails etc. 
+Such type of applications can also be written in Python programming language.
+
+5. Game development – You can develop games using Python.
+
+6. You can develop Embedded applications in Python.
+
+7. Desktop applications – You can develop desktop application in Python using library like TKinter or QT.
+
+Modes of python:
+   1.interactive mode
+        [>>>]single line of code
+    2.script mode
+
+Basic io's:
+
+Printing the statement:
+
+     We use the widely used print() statement to display some data on the screen.
+   
+     We can output the particular data on some device(screen) or even in some file.
+
+     While writing real-world programs, we have to write statements that explicitly output numbers and strings.
+
+Example:
+print("Welcome to race. In this , we will learn about new things")
+
+Output:
+
+Welcome to race.In this, we will learn about new things
+
+user Input:
+
+     We would want to take input from the user and then print some results back.
+      We can achieve this using the input() function and print function respectively.
+Syntax:
+input(prompt)
+
+Parameter	Description
+prompt	          A String, representing a default message before the input.
+
+Example:
+Use the prompt parameter to write a message before the input:
+
+x = input('Enter your name:')
+print('Hello, ' + x)
+
+a=int(input(enter the value of a))
+b=int(input(enter the value of b))
+c=a+b
+print(c)
+
+Comments:
+
+Comments can be used to explain Python code.
+
+Comments can be used to make the code more readable.
+
+Comments can be used to prevent execution when testing code.
+
+Single line comment
+
+#This is a comment
+print("Hello, World!")
+
+Example
+print("Hello, World!")  #This is a comment
+
+Example:
+#print("Hello, World!")
+print("Cheers, Mate!")
+
+Multiline Comments
+
+    To add a multiline comment you could insert a # for each line:
+
+Example
+#This is a comment
+#written in
+#more than just one line
+print("Hello, World!")
+
+Example
+"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+
+
